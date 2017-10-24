@@ -1,0 +1,26 @@
+<html>
+<head>
+<script language="JavaScript">
+
+var urlParamArray = [];
+setUrlParamsHash();
+
+function setUrlParamsHash()
+{
+	// 先頭の#を消して、残りを&で分けて、urlParamPairsへ入れる
+	var urlParamPairs = location.hash.slice(1).split('&');
+	if( urlParamPairs[0] == '' ) return;
+	
+	// パラメータを＝で分けながら格納
+	for( var i=0; i<urlParamPairs.length; i++ ){
+		var paramPair = urlParamPairs[i].split('=');
+		urlParamArray[paramPair[0]] = ( paramPair.length > 1 ) ? paramPair[1] : '';
+	}
+	
+}
+</script>
+</head>
+<body>
+	<input type="button" value="test" onClick="alert(urlParamArray['aaa']);" />
+</body>
+</html>

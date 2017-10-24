@@ -1,0 +1,46 @@
+<HTML>
+
+<HEAD>
+	<TITLE>★☆★</TITLE>
+	
+	<SCRIPT language="JavaScript">
+	<!--
+	
+	function checker(num) {
+		var trgC = window.opener.document.mainF.item("chk"+num);
+		
+		if (trgC.checked) {
+			trgC.checked=false;
+		} else {
+			trgC.checked=true;
+		}
+	}
+	
+	//-->
+	</SCRIPT>
+	
+</HEAD>
+
+<BODY bgcolor="#CCCCCC" onLoad="document.f.rd.value=3";>
+	<CENTER>
+	<FORM name="f">
+	
+	<INPUT type="text" name="fld"><BR>
+	<INPUT type="button" name="b1" value="fld1" onClick="window.opener.document.mainF.fld1.value=document.f.fld.value;">&nbsp;
+	<INPUT type="button" name="b2" value="fld2" onClick="window.opener.document.mainF.fld2.value=document.f.fld.value;">&nbsp;
+	<INPUT type="button" name="b3" value="fld3" onClick="window.opener.document.mainF.fld3.value=document.f.fld.value;"><BR>
+	：：：：：：：：：：：：：：：：：：：<BR>
+	<INPUT type="button" name="cb1" value="chk1" onClick="checker(1);">&nbsp;
+	<INPUT type="button" name="cb2" value="chk2" onClick="checker(2);">&nbsp;
+	<INPUT type="button" name="cb3" value="chk3" onClick="checker(3);"><BR>
+	：：：：：：：：：：：：：：：：：：：<BR>
+	１<INPUT type="radio" name="rd" value="1" onClick="window.opener.document.mainF.slct.value=1;">&nbsp;&nbsp;&nbsp;
+	２<INPUT type="radio" name="rd" value="2" onClick="window.opener.document.mainF.slct.value=2;">&nbsp;&nbsp;&nbsp;
+	３<INPUT type="radio" name="rd" value="3" onClick="window.opener.document.mainF.slct.value=3;"><BR>
+	：：：：：：：：：：：：：：：：：：：
+	
+	</FORM>
+	</CENTER>
+</BODY>
+
+</HTML>

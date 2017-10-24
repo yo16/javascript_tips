@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<todofuken>
+	<to name="東京都">
+		<shi>武蔵野市</shi>
+		<ku>新宿区</ku>
+	</to>
+	<do name="北海道">
+		<shi>札幌市</shi>
+		<shi>函館市</shi>
+	</do>
+	<fu name="大阪府">
+		<shi>大阪市</shi>
+	</fu>
+	<ken name="静岡県">
+		<shi>静岡市</shi>
+		<shi>浜松市</shi>
+	</ken>
+	<ken name="神奈川県">
+		<shi>横浜市</shi>
+		<shi>川崎市</shi>
+	</ken>
+</todofuken>

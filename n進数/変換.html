@@ -1,0 +1,65 @@
+<html>
+
+<head>
+	<title>convert</title>
+	<SCRIPT LANGUAGE="JavaScript">
+	<!--
+	
+	// convert binary number to decimal number
+	function from2to10( string  ) {
+		var number = 0;
+		for( var i = 0; i < string.length; i++ ) {
+			number <<= 1 ;
+			number += eval( string.charAt( i ) );
+		}
+		return number;
+	}
+
+	// convert decimal number to binary number
+	function from10to2( string  ) {
+		if( string == 0 ) return 0;
+		
+		var total = 0;
+		var index = 1;
+		var number = new String();
+
+		while( total != string ) {
+			if( string & index ) {
+				number = "1" + number;
+				total += index;
+			} else {
+				number = "0" + number;
+			}
+			index *= 2;
+		}
+		return number;
+	}
+	
+	//-->
+	</SCRIPT>
+
+</head>
+
+<body>
+	<form name="frm">
+	<table border=1 cellspacing=10>
+	<tr><td align=center>
+	２進数文字<br>
+	<input type="text" name="ni">
+	</td>
+	<td align=center>
+	<input type="button" value="＝＞" onClick="document.frm.juu.value=from2to10(document.frm.ni.value);"><br>
+	<input type="button" value="＜＝" onClick="document.frm.ni.value=from10to2(document.frm.juu.value);">
+	</td>
+	<td align=center>
+	１０進数文字<br>
+	<input type="text" name="juu">
+	</td>
+	</tr>
+	</table>
+	<br><br>
+	ソースは<a href="http://www.fstream.net/~akira/tsunami/script/">ここ</a>からコピってきた。<br>
+	2002/07/10 12:54:24
+</body>
+
+</html>

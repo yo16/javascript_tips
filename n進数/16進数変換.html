@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>10進数から16進数へ変換</title>
+	<script type="text/javascript">
+	
+	// 16進数に分解
+	// 8バイトにしか対応してない。
+	// 16バイトはif文を増やすだけ
+	function func10to16(n10)
+	{
+		n10 = n10 - 0;
+		
+		if( n10 < 0 ){
+			n10 *= -1;
+			// -2147483648(8000 0000)～2147483647(7FFF FFFF)の場合は、8byte
+			if( (-2147483648<=n10) && (n10<=2147483647) ){
+				//4294967296(1 0000 0000)
+				return (4294967296 - n10).toString(16);
+			}
+		}
+		
+		return n10.toString(16);
+	}
+	</script>
+</head>
+
+<body>
+	JavaScriptの、<br />
+	(-16).toString(16)だと、-10とするので、２の補数で自作
+	<hr />
+	<input type="text" id="inp10" /><br />
+	<input type="button" value="10→16" onclick="document.getElementById('inp16').value = func10to16(document.getElementById('inp10').value);" /><br />
+	<input type="text" id="inp16" />
+</body>
+
+</html>

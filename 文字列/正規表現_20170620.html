@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="Keywords" content="" />
+	<meta name="Description" content="" />
+	<title>test</title>
+	<script language="javaScript">
+	var tes = "[aaa]".match( /\[([^\]]+)\]/ );
+	console.log(tes);
+	
+//	var regSection = new RegExp("\[([^\]]+)\]");	// ダブルクォーテーションだとエラーになる！なぜかわからないけど注意。
+	var regSection = new RegExp(/\[([^\]]+)\]/);
+	tes = "[aaa]".match(regSection);
+	console.log(tes);
+	</script>
+</head>
+
+<body>
+	
+</body>
+
+</html>

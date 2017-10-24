@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>関数の引数省略</title>
+	<script type="text/javascript">
+	function ready()
+	{
+		f1("aaa");
+		f1();
+		f1(null);
+	}
+	
+	
+	function f1(param)
+	{
+		if( param == null ){
+			mes( "nullですよ!" );
+		}else{
+			mes( param + "ですよ！");
+		}
+		console.log("tet");
+	}
+	
+	function mes(str)
+	{
+		document.getElementById("message").innerHTML += str;
+	}
+	</script>
+</head>
+
+<body onload="ready();">
+	<span id="message"></span>
+</body>
+
+</html>

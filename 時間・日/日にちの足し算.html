@@ -1,0 +1,56 @@
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>日付け型から足したり引いたり</title>
+	
+	
+	<script language="JavaScript">
+	<!--
+	
+	// 現在の時刻を取得
+	var dtNow = new Date();
+	
+	// 日付けを出力する関数
+	function dateWrite() {
+		document.writeln("今日<br />");
+		document.writeln(dtNow.toString() + "<br />");
+		
+		document.writeln("４年前<br />");
+		var dt1 = new Date();	// 日付型で初期値は使わない
+		dt1.setYear( dtNow.getFullYear() - 4 );
+		document.writeln(dt1.toString() + "<br />");
+		
+		document.writeln("４月前<br />");
+		var dt2 = new Date();	// 日付型で初期値は使わない
+		dt2.setMonth( dtNow.getMonth() - 4 );
+		document.writeln(dt2.toString() + "<br />");
+		
+		document.writeln("４日前<br />");
+		var dt3 = new Date();	// 日付型で初期値は使わない
+		dt3.setDate( dtNow.getDate() - 4 );
+		document.writeln(dt3.toString() + "<br />");
+		
+		document.writeln("４時間前<br />");
+		var dt4 = new Date();	// 日付型で初期値は使わない
+		dt4.setHours( dtNow.getHours() - 4 );
+		document.writeln(dt4.toString() + "<br />");
+		
+		document.writeln("４分前<br />");
+		var dt5 = new Date();	// 日付型で初期値は使わない
+		dt5.setMinutes( dtNow.getMinutes() - 4 );
+		document.writeln(dt5.toString() + "<br />");
+		
+	}
+	
+	//-->
+	</script>
+	
+	
+</head>
+
+<body onLoad="dateWrite();">
+	
+</body>
+
+</html>

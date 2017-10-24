@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="Keywords" content="" />
+	<meta name="Description" content="" />
+	<title>DOMのプロパティにOBJを登録</title>
+	<script type="text/javascript" src="jquery-1.2.6.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		funcSet();
+	});
+	
+	function funcSet(){
+		// 配列の場合
+		var ary = new Array();
+		ary.push('a');
+		ary.push('b');
+		$("#hr1").attr("ary1", ary);
+		console.log( typeof ary );	// object
+		
+		// ハッシュの場合
+		var hash = {};
+		hash["key1"] = "val1";
+		hash["key2"] = "val2";
+		$("#hr1").attr("hash1", hash);
+		console.log( typeof hash );	// object
+		
+		
+		
+		// jQuery.dataを使って設定
+		$.data($("#hr1").get(0), "ary2", ary);
+		$.data($("#hr1").get(0), "hash2", hash);
+		
+		// 登録した後に変更してみたら・・・
+		ary.push('c');
+		// → 反映される！つまり、.dataは参照渡し。（Javascriptは通常すべて参照渡し）
+		
+		
+		console.log("set ok!");
+	}
+	function funcGet(){
+		var ary = $("#hr1").attr("ary1");
+		console.log(ary.length);	// 3
+		console.log(ary);			// a,b	←カンマを含む３文字の文字列
+		console.log( typeof ary );	// string
+		
+		var hash = $("#hr1").attr("hash1");
+		console.log(hash.length);	// 15
+		console.log(hash);			// [object Object]　←こういう文字列
+		console.log( typeof hash );	// string
+		
+		
+		
+		// jQuery.dataを使って取得
+		var ary2 = $.data($("#hr1").get(0), "ary2");
+		console.log(ary2.length);	// 2
+		console.log(ary2);			// ["a", "b", "c"]
+		console.log( typeof ary2 );	// object
+		
+		var hash2 = $.data($("#hr1").get(0), "hash2");
+		console.log(hash2.length);	// undefined
+		console.log(hash2);			// Object {key1:"val1", key2:"val2"}
+		console.log( typeof hash2 );	// object
+	}
+	</script>
+</head>
+
+<body>
+	<!-- input type="button" value="set" onclick="funcSet();" / -->
+	<input type="button" value="get" onclick="funcGet();" />
+	<hr id="hr1" />
+	
+	メモ<br />
+	<br />
+	2016/12/08時点の知識では、解決不可能。１要素ずつ、別々のattrに入れないといけない。<br />
+	そういう関数を作ってもいいけど、もっといいやり方がないかなぁ・・・。<br />
+	<br />
+	クラスのobjectだと、関数も引き連れてってほしいから、↑のやり方だとダメ。
+	<hr />
+	2016/12/09 解決。<br />
+	jQuery.data(elm name, value)を使う。
+</body>
+
+</html>

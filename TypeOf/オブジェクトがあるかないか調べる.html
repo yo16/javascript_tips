@@ -1,0 +1,39 @@
+<html>
+
+<head>
+	<title>type of ...?</title>
+	<script language="JavaScript">
+	<!--
+	
+	// 関数「あるかな」
+	// オブジェクトがあるかどうか確認する。
+	function arukana( i ){
+		// typeを取得
+		if ( i == 1 ){
+			obj = document.frm.txt1;
+		} else {
+			obj = document.frm.txt2;
+		}
+		
+		if ( obj == null ) {
+			alert('nullなんだってサ');
+		} else {
+			alert('not nullなんだってサ');
+		}
+	}
+	
+	//-->
+	</script>
+	
+</head>
+
+<body>
+	<form name="frm">
+	<input type="text" name="txt1" /><br />
+	
+	<input type="button" value="1ある？" onClick="arukana(1);" /><br />
+	<input type="button" value="2ある？" onClick="arukana(2);" /><br />
+	</form>
+</body>
+
+</html>

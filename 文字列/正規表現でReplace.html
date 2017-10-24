@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>正規表現でReplace</title>
+	<script language="JavaScript">
+	
+	var str = "123abc456def789ghi";
+	// [a-z]+[0-9]+を、{[a-z]+=[0-9]+} こんな感じにしたい
+	
+	
+	// オプションのg(全部)をつけると、戻り値の配列は、全体がマッチした数分が設定される
+	// つまり、["abc456", "def789"]
+	var objReg0 = new RegExp( "([a-z]+)([0-9]+)", "g" );
+	var objMatch0 = str.match( objReg0 );
+	for( var i=0; i<objMatch0.length; i++ ){
+//		console.log("aaa"+objMatchh0[i].$1);
+//		console.log("aaa"+objMatchh0[i].$2);	// これがほしいんだけど得られない
+	}
+	
+	// gをつけないと、１回分のサブマッチが配列に入る
+	// つまり、["abc456", "abc", "456"]
+	
+	// なので結局、全部のサブマッチを利用したければ、何度もマッチさせるしかない
+	
+	var objReg = new RegExp( "([a-z]+)([0-9]+)");
+	var aa=0;
+	while( true && (aa++<10) ){
+		var objMatch = str.match( objReg );
+		console.log(objMatch);
+		if( objMatch ){
+			str = str.replace( objMatch[0], "{"+objMatch[1]+"="+objMatch[2]+"}" );
+		}else{
+			break;
+		}
+	}
+	console.log( str );
+	
+	// 置換後も同じところに再マッチしてしまうreplaceでは・・・・どうしよう。
+	// 上記ではだめ。
+	
+	console.log("--------------------------------------------------");
+	
+	
+	
+	var str2 = "123abc456def789ghi";
+	str2 = str2.replace( new RegExp("([a-z]+)([0-9]+)", "g"), 
+/*だせぇ！
+		function( whole, subMatch1, subMatch2 ){
+			console.log(subMatch1);
+			console.log(subMatch2);
+*/
+		function(){
+// test			console.log(arguments);		// ["abc456", "abc", "456", 3, "123abc456def789ghi"]と["def789", "def", "789", 9, "123abc456def789ghi"]
+			return "XXX"+arguments[1]+"YYY"+arguments[2]+"ZZZ";
+			// → 123XXXabcYYY456ZZZXXXdefYYY789ZZZghi
+		}
+	);
+	console.log(str2);
+//str1 = str.replace(/^([A-Z]+)(\d+)([A-Z]+)$/, function(){return arguments[1] + "-"+ arguments[2] + "-" + arguments[3]});
+	
+	
+	
+	</script>
+</head>
+
+<body>
+	
+</body>
+
+</html>

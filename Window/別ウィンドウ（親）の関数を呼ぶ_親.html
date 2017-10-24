@@ -1,0 +1,102 @@
+<html>
+
+<head>
+	<title>親ウィンドウ</title>
+	<script language="JavaScript">
+	<!--
+	
+	// 実行中の子
+	var vChildNum;
+	// 最後の子
+	var vLastChildNum = 2;
+	
+	
+	// func_CallChild
+	//	呼び出す
+	function func_CallChild(pChildNum)
+	{
+		// 最後の子を超えていた場合、終了する
+		if (pChildNum > vLastChildNum){
+			alert('全部終わってます！');
+			return 0;
+		}
+		
+		// ステータスを"実行中"に変更
+		func_StatusChange(pChildNum, 1);
+		
+		// 実行中の子を変更
+		vChildNum = pChildNum;
+		
+		// 子を呼び出す
+		alert('呼び出す');
+		window.open('別ウィンドウ（親）の関数を呼ぶ_子'+pChildNum+'.html', 'child'+pChildNum);
+	}
+	
+	// func_CallNextChild
+	//	次の子を呼び出す
+	//	子画面から呼び出される関数
+	function func_NextChild(){
+		alert('nextchild');
+		
+		// 今の子のステータスを"終了"とする
+		func_StatusChange(vChildNum, 2);
+		
+		// 次の子に設定
+		vChildNum++;
+		
+		// 最後の子を超えていた場合、終了する
+		if (vChildNum > vLastChildNum){
+			alert('全部終わり');
+			return 0;
+		}
+		
+		// 呼び出す
+		func_CallChild(vChildNum);
+	}
+	
+	// func_StatusChange
+	// 	ステータスを変更する
+	//		ステータス [0:未実行 | 1:実行中 | 2:完了]
+	function func_StatusChange(pChildNum, pStatus)
+	{
+		// ステータスの文言を決定
+		var vStatusStr = '';
+		switch( pStatus ){
+		case 0:
+			vStatusStr = '未実行';
+			break;
+		case 1:
+			vStatusStr = '実行中';
+			break;
+		case 2:
+			vStatusStr = '完了';
+			break;
+		default:
+			vStatusStr = '未定義...';
+			break;
+		}
+		
+		// 文言を設定
+		document.frm.item('child'+pChildNum).value = vStatusStr;
+		
+	}
+	
+	//-->
+	</script>
+</head>
+
+<body>
+	
+	<form name="frm">
+	１のステータス<input name="child1" type="text" value="未実行"><br />
+	２のステータス<input name="child2" type="text" value="未実行"><br />
+	
+	<br />
+	<input type="button" value="実行" onClick="func_CallChild(1);">
+	
+	</form>
+	
+	
+</body>
+
+</html>

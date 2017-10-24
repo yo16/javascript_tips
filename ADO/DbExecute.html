@@ -1,0 +1,49 @@
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+<html>
+
+<head>
+	<title>db execute</title>
+	<script type="text/javascript" src="./jquery/jquery-1.9.0.min.js" ></script>
+	<script type="text/javascript" src="./DbExecute.js" ></script>
+	<style>
+	#areaQuery{
+		width:500px;
+		height:80px;
+		font-size:large;
+		font-family:'ＭＳ ゴシック';
+	}
+	#btnExecute{
+		height:80px;
+		background-color:#e66;
+	}
+	
+	.ExecutedTimestamp{
+		background-color:#cce;
+	}
+	.ExecutedQuery{
+		font-style:italic;
+	}
+	</style>
+</head>
+
+<body>
+	<a href="DbSelect.html">Select</a>
+	<!-- DB選択部 -->
+	<div align="right">
+	<span id="spnUsingDbPath"></span><br />
+	<!-- select id="slctDbPath"></select><br />
+	<input type="text" id="txtDbPath" / -->
+	</div>
+	
+	<!-- クエリ入力部 -->
+	<textarea id="areaQuery"></textarea>
+	<input type="button" id="btnExecute" value="Execute" />
+	
+	<hr />
+	
+	<!-- 結果部 -->
+	<span id="spnResult" />
+</body>
+
+</html>
+

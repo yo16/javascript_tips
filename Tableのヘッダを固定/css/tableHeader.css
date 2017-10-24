@@ -1,0 +1,72 @@
+body{
+	background-color:#f6e6f6;
+}
+th, td{
+	border:1px solid #000;
+}
+#frm21, #frm22{
+	max-width:200px;
+	overflow:hidden;
+}
+#div23{
+	max-width:200px;
+	max-height:18px;
+	overflow-x:scroll;
+	overflow-y:hidden;
+}
+#div12, #div22{
+	max-height:150px;
+	overflow:hidden;
+}
+#div32{
+	max-height:150px;
+	overflow-x:hidden;
+	overflow-y:scroll;
+}
+#frm32{
+	max-width:18px;
+	overflow-x:hidden;
+}
+.col0{
+	width:100px;
+}
+.col1{
+	min-width:100px;
+	width:100px;
+}
+.col2{
+	min-width:100px;
+	width:100px;
+}
+.col3{
+	min-width:100px;
+	width:100px;
+}
+.col4{
+	min-width:100px;
+	width:100px;
+}
+#divDrag{
+/*	background-color:#eee;*/
+}
+
+
+
+
+
+
+.c1{
+	background-color:#ddbbcc;
+}
+.c2{
+	background-color:#e6e6e6;
+}
+.c3{
+	background-color:#cfcfcf;
+}
+.c4{
+	background-color:#bbaacc;
+}
+.c5{
+	background-color:#d0d0e0;
+}

@@ -1,0 +1,35 @@
+<html>
+
+<head>
+	<title>連想配列</title>
+	<script language="JavaScript">
+	
+	var ren1 = {};
+//	ren1.elm1 = 'test';
+	ren1['elm1'] = 'test';
+	
+	alert(ren1['elm1']);
+	
+	
+	
+	// 実験１
+//	ren1.elm2.elm21 = 'test2';				// 連続でやるとエラー
+	
+	// 実験２
+	ren1.elm2 = {}
+	ren1.elm2.elm21 = 'test2';
+	
+	// 確認
+	alert(ren1.elm2.elm21);
+	
+	
+	// 定義されているかどうか
+	if( 'elm1' in ren1 ){
+		alert('ある');
+	}
+	</script>
+</head>
+
+<body>
+</body>
+</html>

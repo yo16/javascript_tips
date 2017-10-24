@@ -1,0 +1,49 @@
+<HTML>
+
+<HEAD>
+	<TITLE>前ゼロ</TITLE>
+	<SCRIPT language="JavaScript">
+	<!--
+	
+	// 前ゼロ関数
+	// numをlengthの桁数にする。
+	function 前ゼロ関数(num, length) {
+		// 数字を文字列に変換
+		num=num+"";
+
+		// 前ゼロ
+		for (var i=0; num.length<length; i++) {
+			num="0"+num;
+		}
+		
+		// 返す
+		return(num);
+	}
+	
+	//-->
+	</SCRIPT>
+</HEAD>
+
+<BODY>
+
+<SCRIPT language="JavaScript">
+<!--
+
+var num=5;
+
+var keta=3;
+
+num = 前ゼロ関数(num, keta);
+
+
+// 確認
+document.writeln(num);
+
+
+
+//-->
+</SCRIPT>
+
+</BODY>
+
+</HTML>

@@ -1,0 +1,60 @@
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+<html>
+
+<head>
+	<title>db select</title>
+	<script type="text/javascript" src="./jquery/jquery-1.9.0.min.js" ></script>
+	<script type="text/javascript" src="./DbSelect.js" ></script>
+	<style>
+	#dbPath{
+		color:#999;
+		font-style:italic;
+	}
+	input#txtSelectDb{
+		width:400pt;
+	}
+	
+	#areaQuery{
+		width:800pt;
+		height:200pt;
+		font-size:large;
+		font-family:'ＭＳ ゴシック';
+	}
+	#btnSelect{
+		width:100pt;
+		height:100pt;
+	}
+	#tabResult{
+		border:1pt solid #ccc;
+		background-color:#eee;
+	}
+	#tabResult th{
+		background-color:#dd6;
+	}
+	td.resultTd{
+		background-color:#fff;
+	}
+	
+	</style>
+</head>
+
+<body>
+	<a href="DbExecute.html">Execute</a>
+	<div align="right">
+	<span id="dbPath"></span><br />
+	<select id="selSelectDb">
+	<option>\\pvs628\User556\200_ESPRi-Ⅱサポート\210_共通\Q&A対応記録\DB\SupportLogAnalyze.mdb</option>
+	<option selected>C:\zProgramming\JavaScript\ADO\SupportLog.mdb</option>
+	<option>Z:\01_3DY\99_3DY個人\池田 容一郎\20_作業\20140526_1_サポートログ分析ツール\3_作成\1_10_Mcb2Qry\SupportLogAnalyze.mdb</option>
+	<option>\\pvs628\User556\200_ESPRi-Ⅱサポート\210_共通\Q&A対応記録\DB\SupportLog.mdb</option>
+	</select>
+	<!-- input type="button" value="↓" id="btnUsePath" / --><br />
+	<input type="text" id="txtSelectDb" /><input type="button" value="Select DB" id="btnSelectDb"/>
+	</div>
+	<textarea id="areaQuery"></textarea><input type="button" value="Select" id="btnSelect" />
+	<hr />
+	<div id="divResult" />
+	<table id="tabResult" />
+</body>
+
+</html>

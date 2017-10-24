@@ -1,0 +1,38 @@
+<html>
+<head>
+	<title>test</title>
+
+	<script language="JavaScript">
+	<!--
+		// •û–@‚P
+		function funcOki1(){
+			for( i=0; i<document.f1.cb1.length; i++ ){
+				document.f1.cb1(i).checked = false;
+				document.f1.cb1(i).disabled = false;
+			}
+		}
+		// •û–@‚Q
+		function funcOki2(){
+			objElements = document.getElementsByName("cb1");
+			for( i=0; i<objElements.length; i++ ){
+				objElements(i).checked = true;
+				objElements(i).disabled = true;
+			}
+		}
+		//-->
+	</script>
+</head>
+
+<body>
+	<form name="f1">
+		<input type="button" onClick="funcOki1();" value="type1" /><hr />
+		<input type="button" onClick="funcOki2();" value="type2" /><hr />
+		<input type="checkbox" name="cb1" /><br />
+		<input type="checkbox" name="cb1" /><br />
+		<input type="checkbox" name="cb1" /><br />
+		<input type="checkbox" name="cb1" /><br />
+		<input type="checkbox" name="cb1" /><br />
+	</form>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<html>
+
+<head>
+	<title>オブジェクトあるかな</title>
+	
+	<script language="JavaScript">
+	<!--
+	
+	//------------------------------------------
+	// typeofを使ったオブジェクト存在チェック
+	//------------------------------------------
+	function func_typeofであるかな( obj ){
+		//if ( typeof( obj ) == undefined ) {
+		if ( typeof( obj ) == "undefined" ) {		// undefinedを文字列にしないと駄目
+			alert('undefinedです！');
+		} else {
+			alert('undefinedではないです！\n' + typeof( obj ) + 'です！');
+		}
+	}
+	
+	//------------------------------------------
+	// ==nullを使ったオブジェクト存在チェック
+	//------------------------------------------
+	function func_直指定であるかな( obj ){
+		if ( obj == null ) {
+			alert('nullです！');
+		} else {
+			alert('nullではないです！');
+		}
+	}
+	
+	// 
+	//-->
+	</script>
+</head>
+
+<body>
+	
+	<form name="frm1">
+	
+	↓obj1<br />
+	<input type="text" name="obj1"><br />
+	<br />
+	<br />
+	
+	typeofで、、<br />
+	<input type="button" value="obj1はあるかな" onClick="func_typeofであるかな( document.frm1.obj1 );"><br />
+	<input type="button" value="obj2はあるかな" onClick="func_typeofであるかな( document.frm1.obj2 );"><br />
+	<br />
+	
+	直指定で、、、<br />
+	<input type="button" value="obj1はあるかな" onClick="func_直指定であるかな( document.frm1.obj1 );"><br />
+	<input type="button" value="obj2はあるかな" onClick="func_直指定であるかな( document.frm1.obj2 );"><br />
+	
+	</form>
+	
+</body>
+
+</html>

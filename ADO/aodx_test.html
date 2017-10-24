@@ -1,0 +1,16 @@
+<html>
+<head>
+	<title>aodx test</title>
+	<script type="text/javascript">
+	function createTable()
+	{
+		var dbCat = new ActiveXObject("ADOX.Catalog");
+		dbCat.ActiveConnection = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\tmp\ikeda_local\tool\javascript\ADO\test.mdb;
+	}
+	</script>
+</head>
+
+<body>
+<input type="button" value="create" onClick="createTable();" />
+</body>
+</html>

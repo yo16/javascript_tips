@@ -1,0 +1,143 @@
+<html>
+<head>
+	<title>replaceAllのテスト</title>
+	<script language="JavaScript">
+	// 単純にsplit join
+	// これだと大文字小文字の区別を付けられない
+	String.prototype.replaceAll_1 = function( p_org, dest ){
+		return this.split(''+p_org).join(dest);
+	}
+	
+	// ignore caseを使いたいため、正規表現
+	String.prototype.replaceAll_2 = function( p_org, dest ){
+		var org = '' + p_org;	// 文字列化
+		var re = new RegExp(org, 'i');
+		
+		// 正規表現で見つけた文字列を、destで連結する
+		var ret = this.split(re).join(dest);
+		
+		return ret;
+	}
+	
+	// 正規表現を使ったreplace
+	String.prototype.replaceAll_3 = function( org, dest ){
+		return this.replace(new RegExp(''+org, 'gi'), dest);
+	}
+	
+	
+	var i=0;
+	var testOne = function(str, moto, saki, seikai){
+		// ★テスト
+		var henkan = str.replaceAll_3(moto, saki);
+		
+		var tr_tag = document.createElement('tr');
+		var td_tag1 = document.createElement('td');
+		td_tag1.innerHTML = i++;
+		tr_tag.appendChild(td_tag1);
+		var td_tag2 = document.createElement('td');
+		td_tag2.innerHTML = str;
+		tr_tag.appendChild(td_tag2);
+		var td_tag3 = document.createElement('td');
+		td_tag3.innerHTML = moto;
+		tr_tag.appendChild(td_tag3);
+		var td_tag4 = document.createElement('td');
+		td_tag4.innerHTML = saki;
+		tr_tag.appendChild(td_tag4);
+		var td_tag5 = document.createElement('td');
+		td_tag5.innerHTML = henkan;
+		tr_tag.appendChild(td_tag5);
+		var td_tag6 = document.createElement('td');
+		td_tag6.innerHTML = seikai;
+		tr_tag.appendChild(td_tag6);
+		var td_tag7 = document.createElement('td');
+		td_tag7.innerHTML = (seikai==henkan) ? 'OK' : 'NG';
+		td_tag7.className = (seikai==henkan) ? '' : 'NG';
+		tr_tag.appendChild(td_tag7);
+		document.getElementById('result').appendChild(tr_tag);
+	}
+	
+	var testAll = function(){
+		// 1文字
+		testOne('a', 'a', 'b', 'b');
+		// 1文字先頭
+		testOne('axx', 'a', 'b', 'bxx');
+		// 1文字途中
+		testOne('xxaxx', 'a', 'b', 'xxbxx');
+		// 1文字末尾
+		testOne('xxa', 'a', 'b', 'xxb');
+		
+		// 3文字
+		testOne('abc', 'abc', 'xyz', 'xyz');
+		// 3文字先頭
+		testOne('abcxx', 'abc', 'xyz', 'xyzxx');
+		// 3文字途中
+		testOne('xxabcxx', 'abc', 'xyz', 'xxxyzxx');
+		// 3文字末尾
+		testOne('xxabc', 'abc', 'xyz', 'xxxyz');
+		
+		// １文字複数hit
+		testOne('aa', 'a', 'b', 'bb');
+		// １文字複数hitノイズあり
+		testOne('aaxx', 'a', 'b', 'bbxx');
+		// １文字複数hitノイズあり
+		testOne('axxaxx', 'a', 'b', 'bxxbxx');
+		// １文字複数hitノイズあり
+		testOne('xxaaxx', 'a', 'b', 'xxbbxx');
+		// １文字複数hitノイズあり
+		testOne('xxaxxaxx', 'a', 'b', 'xxbxxbxx');
+		// １文字複数hitノイズあり
+		testOne('xxaxxa', 'a', 'b', 'xxbxxb');
+		// １文字複数hitノイズあり
+		testOne('xxaa', 'a', 'b', 'xxbb');
+		// １文字複数hitノイズあり
+		testOne('axxa', 'a', 'b', 'bxxb');
+		
+		// 複数文字複数hit
+		testOne('abcabc', 'abc', 'xyz', 'xyzxyz');
+
+		testOne('abcabcgg', 'abc', 'xyz', 'xyzxyzgg');
+		testOne('abcggabc', 'abc', 'xyz', 'xyzggxyz');
+		testOne('ggabcabc', 'abc', 'xyz', 'ggxyzxyz');
+
+		testOne('ggttabcabc', 'abc', 'xyz', 'ggttxyzxyz');
+		testOne('ggabcttabc', 'abc', 'xyz', 'ggxyzttxyz');
+		testOne('ggabcabctt', 'abc', 'xyz', 'ggxyzxyztt');
+		testOne('abcggabctt', 'abc', 'xyz', 'xyzggxyztt');
+		testOne('abcabcggtt', 'abc', 'xyz', 'xyzxyzggtt');
+		
+		testOne('ggabcggabcgg', 'abc', 'xyz', 'ggxyzggxyzgg');
+		
+		// 変換先の文字が変換元にかぶる（変換後もまたヒットしてしまうはず）
+		testOne('xxaaxx', 'aa', 'yyaayy', 'xxyyaayyxx');
+		
+		// 大文字小文字
+		testOne('abcggABCtt', 'abc', 'xyz', 'xyzggxyztt');
+	}
+	
+	</script>
+	<style>
+	th, td{
+		 border:1pt solid #ccc;
+	}
+	.NG{
+		background-color:#f00;
+	}
+	</style>
+</head>
+<body onLoad='testAll();'>
+	<table>
+	<tr><th>No</th><th>元文字列</th><th>変換元</th><th>変換先</th><th>結果文字列</th><th>期待する文字列</th><th>テスト結果</th></tr>
+	<tbody id="result">
+	</tbody>
+	</table>
+	<hr />
+	元：<input type="text" id="txtText_org" /><br />
+	変換元：<input type="text" id="txtText_in" /><br />
+	変換先：<input type="text" id="txtText_out" /><br />
+	<input type="button" value="text"  onClick="alert(document.getElementById('txtText_org').value.replaceAll(
+		document.getElementById('txtText_in').value,
+		document.getElementById('txtText_out').value
+	));" />
+</body>
+</html>
+

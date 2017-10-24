@@ -1,0 +1,23 @@
+<html>
+
+<head>
+	<title>いくつかのウィンドウを開く</title>
+	<script language="JavaScript">
+	<!--
+	function func_openWindows(url1, url2){
+		window.open(url1);
+		window.open(url2);
+	}
+	//-->
+	</script>
+</head>
+
+<body>
+	<input type="button" value="windows!" onClick="func_openWindows('a.html', 'a2.html');">
+	→ 後でwindow.openを実行したヤツが前面に表示される。
+	<br /><br /><br />
+	<input type="button" value="表示し終えるまで待つ？" onClick="func_openWindows('http://www.msn.co.jp/home.armx', 'http://www.yahoo.co.jp/');">
+	→ 待たない。
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>配列とハッシュ</title>
+	<script language="JavaScript">
+	
+	function test1(){
+		var hash1 = {'name1':1, 'name2':2};
+		console.log(hash1);
+		// → Object {name1: 1, name2: 2}
+		console.log(typeof(hash1));
+		// → object
+		
+		
+		var ary1 = [10,20];
+		console.log(ary1);
+		// → (2) [10, 20]
+		console.log(typeof(ary1));
+		// → object
+		
+		// これじゃ配列の判断ができないので、jQueryの書き方を真似て・・・
+		console.log(toString.call(ary1));
+		// → [object Array]
+		// 使い方
+		//if( toString.call(ary1) === '[object Array]' ){
+		// 配列
+	};
+	</script>
+</head>
+
+<body>
+	<input type="button" value="1" onClick="test1();" />
+</body>
+
+</html>

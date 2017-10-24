@@ -1,0 +1,37 @@
+<html>
+
+<head>
+	<title>パスワード作成</title>
+	<script language="JavaScript">
+	<!--
+	
+	var fSetPass = function(n){
+		var strKouho = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+					 + "abcdefghijklmnopqrstuvwxyz"
+					 + "0123456789";
+//		var strKouho = "0123456789#$!@&%/";
+		var i, strPass;
+		strPass = "";
+		var pos;
+		for( i=0; i<n; i++ ){
+			pos = Math.floor(Math.random()*(strKouho.length));
+			strPass = strPass + strKouho.charAt(pos);
+		}
+		
+		document.f.t.value = strPass;
+	}
+	
+	//-->
+	</script>
+</head>
+
+<body>
+	<form name="f">
+	length<input type="text" name="len" value="8" size="3" />
+	<input type="button" value="作成" onClick="fSetPass(document.f.len.value)" />
+	<br /><br />
+	<input name="t" type="text" size=20 />
+	</form>
+</body>
+
+</html>

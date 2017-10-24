@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>要素を挿入</title>
+	<script type="text/javascript">
+	var ary = ["a", "b", "c", "d"];
+	console.log( ary );
+	// ["a", "b", "c", "d"]
+	
+	// 2の位置へ挿入
+	ary.splice(2, 0, "b1");
+	console.log( ary );
+	// ["a", "b", "b1", "c", "d"]
+	
+	// 2と3を除外して挿入
+	ary.splice(2, 2, "c1");
+	console.log( ary );
+	// ["a", "b", "c1", "d"]
+	
+	</script>
+</head>
+
+<body>
+	
+</body>
+
+</html>

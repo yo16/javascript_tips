@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>パスワード生成</title>
+	<script language="javascript">
+	var s_strAbcL = "ABCDEFGHJKLMNPQRSTUVWXYZ";
+	var s_strAbcLConf = "IO";
+	var s_strAbcS = "abcdefghjklmnpqrstuvwxyz";
+	var s_strAbcSConf = "io";
+	var s_str123 = "23456789";
+	var s_str123Conf = "01";
+	
+	function makePassword(){
+		var txt = document.getElementById("strPassword");
+		txt.value = "";
+		
+		var len = document.getElementById("charLen").value - 0;
+		
+		var strABC = "";
+		if( document.getElementById("useABC").checked){
+			if( document.getElementById("useL").checked ){
+				strABC += s_strAbcL;
+				if( ! document.getElementById("nouseConfChar").checked ){
+					strABC += s_strAbcLConf;
+				}
+			}
+			if( document.getElementById("useS").checked ){
+				strABC += s_strAbcS;
+				if( ! document.getElementById("nouseConfChar").checked ){
+					strABC += s_strAbcSConf;
+				}
+			}
+		}
+		
+		var str123 = "";
+		if( document.getElementById("use123").checked ){
+			strABC += s_str123;
+			if( ! document.getElementById("nouseConfChar").checked ){
+				str123 += s_str123Conf;
+			}
+		}
+		
+		var strSym = "";
+		if( document.getElementById("useSym").checked ){
+			strSym += document.getElementById("textSym").value;
+		}
+		
+		var strAll = strABC + str123 + strSym;
+		if( strAll.length == 0 ){
+			txt.value = "(使用する文字を選択してください)";
+			return;
+		}
+		
+		// 指示した文字数分決める
+		var strRet = "";
+		for( var i=0; i<len; i++ ){
+			strRet += strAll.charAt( Math.floor( Math.random()*(strAll.length) ) );
+		}
+		
+		// 使用するチェックが入っているのに入っていない場合は１文字入れる
+		var strAdd = "";
+		if( document.getElementById("useABC").checked　){
+			if( document.getElementById("useL").checked ){
+				if( !checkExists( strRet, s_strAbcL ) ){	// 紛らわしくない文字だけ
+					strAdd += s_strAbcL.charAt(Math.floor( Math.random()*(s_strAbcL.length) ) );
+				}
+			}
+			if( document.getElementById("useS").checked ){
+				if( !checkExists( strRet, s_strAbcS ) ){	// 紛らわしくない文字だけ
+					strAdd += s_strAbcS.charAt(Math.floor( Math.random()*(s_strAbcS.length) ) );
+				}
+			}
+		}
+		if( document.getElementById("use123").checked ){
+			if( !checkExists( strRet, s_str123 ) ){	// 紛らわしくない文字だけ
+				strAdd += s_str123.charAt(Math.floor( Math.random()*(s_str123.length) ) );
+			}
+		}
+		if( document.getElementById("useSym").checked ){
+			if( !checkExists( strRet, document.getElementById("textSym").value ) ){
+				strAdd += document.getElementById("textSym").value.charAt(Math.floor( Math.random()*(document.getElementById("textSym").value.length) ) );
+			}
+		}
+		//console.log(">"+strAdd+"<");
+		// strAddをランダムな位置に入れる
+		// これによって、また登場しなくなることがあるけど、
+		// めんどくさいから気にしない。
+		// 割と入るようになるはず。
+		for( var i=0; i<strAdd.length; i++ ){
+			var pos = Math.random()*strRet;
+			strRet = strRet.slice(0,pos-1) + strAdd.charAt(i) + strRet.slice(pos+1);
+		}
+		txt.value = strRet;
+		
+		txt.select();
+	};
+	// strにcharsが、少なくとも１文字入っていることを確認する
+	function checkExists(str1, chars)
+	{
+		for( var i=0; i<str1.length; i++ ){
+			for( var j=0; j<chars.length; j++ ){
+				if( str1.charAt(i) == chars.charAt(j) ){
+					// １文字見つけた
+					return true;
+				}
+			}
+		}
+		// 見つけられなかった
+		return false;
+	}
+	function lenAdd(n)
+	{
+		var org = document.getElementById("charLen").value - 0;
+		org += n;
+		if( org < 1 ) org = 1;
+		document.getElementById("charLen").value = org;
+		
+		makePassword();
+	}
+	</script>
+	<style>
+	.setsumei{
+		color : #777;
+		font-size : small;
+		padding: 5px 0px 0px 40px;
+	}
+	legend{
+		padding:5px;
+	}
+	</style>
+</head>
+
+<body onload="makePassword();">
+	<input type="button" value="パスワード" onclick="makePassword();" />：
+	<input
+		type="text" id="strPassword" 
+		size="25"
+		style="font-size:30px; background-color:#ee9;"
+		onclick="document.getElementById('strPassword').select();"
+	/>
+	<hr />
+	<fieldset>
+		<legend>設定</legend>
+		文字数：<input type="text" id="charLen" readonly style="text-align:center" value="10" size="2" />
+		<input type="button" value="＋" onclick="lenAdd(1);" />
+		<input type="button" value="－" onclick="lenAdd(-1);" />
+		<fieldset>
+			<legend>使用する文字</legend>
+			<input type="checkbox" id="useABC" checked onclick="makePassword();" /><label for="useABC">アルファベット</label><br />
+			<div style="padding-left:30px;">
+				<input type="checkbox" id="useL" checked onclick="makePassword();" /><label for="useL">大文字</label>
+				<input type="checkbox" id="useS" checked onclick="makePassword();" /><label for="useS">小文字</label>
+			</div>
+			<input type="checkbox" id="use123" checked onclick="makePassword();" /><label for="use123">数字</label><br />
+			<input type="checkbox" id="useSym" checked onclick="makePassword();" /><label for="useSym">記号</label>&nbsp;
+			<input type="text" id="textSym" value="!#$%&=-" size="8" />
+		</fieldset>
+		<br />
+		<input type="checkbox" id="nouseConfChar" checked onclick="makePassword();" /><label for="nouseConfChar">紛らわしい文字を使わない</label><br />
+		<div class="setsumei">
+		I(大文字のアイ)、O(大文字のオー)、l(小文字のエル)、o(小文字のオー)、0(数字のゼロ)、1(数字のいち)
+		</div>
+	</fieldset>
+</body>
+
+</html>

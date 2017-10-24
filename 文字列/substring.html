@@ -1,0 +1,45 @@
+<HTML>
+
+<HEAD>
+	<TITLE>substring test</TITLE>
+	<script language="javascript">
+	<!--
+	
+		function test() {
+			document.frm.ans.value = document.frm.str.value.substring(
+				document.frm.param1.value,
+				document.frm.param2.value
+			);
+		}
+	
+		function test2() {
+			document.frm2.ans.value = document.frm2.str.value.substr(
+				document.frm2.param1.value,
+				document.frm2.param2.value
+			);
+		}
+		
+	//-->
+	</script>
+</HEAD>
+
+<BODY>
+	<form name="frm">
+		<input type=text name="str" size=10 value="abcde">．substring（ <input type=text name="param1" size=10> ， <input type=text name="param2" size=10> ）<br>
+		<input type=button value="substring!" onClick="test();">
+		<br>
+		return value <input type=text name="ans" size=10>
+	</form>
+	<hr>
+	<br>
+	<form name="frm2">
+		<input type=text name="str" size=10 value="abcde">．substr（ <input type=text name="param1" size=10> ， <input type=text name="param2" size=10> ）<br>
+		<input type=button value="substr!" onClick="test2();">
+		<br>
+		return value <input type=text name="ans" size=10>
+	</form>
+	<hr>
+	2002/07/09 19:57:44
+</BODY>
+
+</HTML>

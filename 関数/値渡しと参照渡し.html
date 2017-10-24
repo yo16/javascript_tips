@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>値渡しと参照渡し</title>
+	<script type="text/javascript">
+	
+	function ready(){
+		var a = 0;
+		var b = a;	// 値渡し
+		b = 10;
+		
+		console.log(a);	// 0
+		console.log(b);	// 10
+		
+		
+		// -------------------
+		var c = [0,1,2];
+		var d = c;
+		d[0] = 999;
+		
+		console.log(c);	// 999,1,2
+		console.log(d);	// 999,1,2
+		
+		// --------------------
+		// 関数の場合
+		// --------------------
+		var e = 10;
+		f1(e);
+		console.log(e);	// 10;
+		
+		var f = [3,4,5];
+		f2(f);
+		console.log(f);	// 999,4,5
+	}
+	
+	function f1(val)
+	{
+		val += 1;
+	}
+	function f2(ary)
+	{
+		ary[0] = 999;
+	}
+	
+	</script>
+</head>
+
+<body onload="ready();">
+	参考url:http://qiita.com/migi/items/3417c2de685c368faab1
+	<hr />
+	
+	変数の代入、関数の引数いずれでも、基本は、「プリミティブ型は値渡し」で、それ以外は「参照渡し」。<br />
+</body>
+
+</html>

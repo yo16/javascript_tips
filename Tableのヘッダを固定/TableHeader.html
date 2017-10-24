@@ -1,0 +1,115 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title>tableのheaderを固定</title>
+	<script type="text/javascript" src="./js/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="./js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="./js/tableHeader.js"></script>
+	<link rel="stylesheet" href="./css/tableHeader.css" type="text/css"></link>
+</head>
+
+<body>
+	<table id="tblFrm">
+	<thead>
+	<tr>
+		<td id="frm11">
+			<table>
+			<tr>
+				<th class="col0">名前</th>
+			</tr>
+			</table>
+		</td>
+		<td id="frm21">
+			<table id="tbl21">
+			<tr>
+				<th class="col1">2015/9/7</th>
+				<th class="col2">2015/9/14</th>
+				<th class="col3">2015/9/21</th>
+				<th class="col4">2015/9/28</th>
+			</tr>
+			</table>
+		</td>
+		<td id="frm31"></td>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td id="frm12">
+			<div id="div12">
+			<table id="tbl12">
+			<tr><td class="col0">ももたろう</td></tr>
+			<tr><td class="col0">ももたろう</td></tr>
+			<tr><td class="col0">ももたろう</td></tr>
+			<tr><td class="col0">ももたろう</td></tr>
+			<tr><td class="col0">ももたろう</td></tr>
+			<tr><td class="col0">ももたろう</td></tr>
+			<tr><td class="col0">ももたろう</td></tr>
+			<tr><td class="col0">ももたろう</td></tr>
+			<tr><td class="col0">ももたろう</td></tr>
+			<tr><td class="col0">ももたろう</td></tr>
+			</table>
+			</div>
+		</td>
+		<td id="frm22">
+			<div id="div22">
+			<table>
+			<tr><td class="col1">10</td><td class="col2">11</td><td class="col3">12</td><td class="col4">13</td></tr>
+			<tr><td class="col1">10</td><td class="col2">11</td><td class="col3">12</td><td class="col4">13</td></tr>
+			<tr><td class="col1">10</td><td class="col2">11</td><td class="col3">12</td><td class="col4">13</td></tr>
+			<tr><td class="col1">10</td><td class="col2">11</td><td class="col3">12</td><td class="col4">13</td></tr>
+			<tr><td class="col1">10</td><td class="col2">11</td><td class="col3">12</td><td class="col4">13</td></tr>
+			<tr><td class="col1">10</td><td class="col2">11</td><td class="col3">12</td><td class="col4">13</td></tr>
+			<tr><td class="col1">10</td><td class="col2">11</td><td class="col3">12</td><td class="col4">13</td></tr>
+			<tr><td class="col1">10</td><td class="col2">11</td><td class="col3">12</td><td class="col4">13</td></tr>
+			<tr><td class="col1">10</td><td class="col2">11</td><td class="col3">12</td><td class="col4">13</td></tr>
+			<tr><td class="col1">10</td><td class="col2">11</td><td class="col3">12</td><td class="col4">13</td></tr>
+			</table>
+			</div>
+		</td>
+		<td id="frm32">
+			<!-- y scroll bar -->
+			<div id="div32">
+			<table>
+			<tr><td>&nbsp;</td></tr>
+			<tr><td>&nbsp;</td></tr>
+			<tr><td>&nbsp;</td></tr>
+			<tr><td>&nbsp;</td></tr>
+			<tr><td>&nbsp;</td></tr>
+			<tr><td>&nbsp;</td></tr>
+			<tr><td>&nbsp;</td></tr>
+			<tr><td>&nbsp;</td></tr>
+			<tr><td>&nbsp;</td></tr>
+			<tr><td>&nbsp;</td></tr>
+			</table>
+			</div>
+		</td>
+	</tr>
+	</tbody>
+	<tfoot>
+	<tr>
+		<td id="frm13"></td>
+		<td id="frm23">
+			<!-- x scroll bar -->
+			<div id="div23">
+			<table id="tbl23">
+			<tr>
+				<th class="col1" />
+				<th class="col2" />
+				<th class="col3" />
+				<th class="col4" />
+			</tr>
+			</table>
+			</div>
+		</td>
+		<td id="frm33"><div id="divDrag">&nbsp;</div></td>
+	</tr>
+	</tfoot>
+	</table>
+	
+	<hr />
+	
+	memo<br />
+	縦と横のコーディングが違うのは、cssの指定で縦と横で動作が違う為。単純にheightとwidthをひっくり返しているだけではない。
+	
+</body>
+</html>

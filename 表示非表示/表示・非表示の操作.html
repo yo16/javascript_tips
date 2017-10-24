@@ -1,0 +1,99 @@
+<HTML>
+
+<HEAD>
+	<TITLE>テーブルタグの操作</TITLE>
+<style type="text/css">
+<!--
+#nodisplay1
+{
+	background-color:#ffcccc
+	display:"none"
+}
+-->
+</style>
+
+<!--	<SCRIPT language="JavaScript">-->
+<script type="text/javascript">
+	<!--
+	
+	function toggle(id) {
+		if (document.all) { // for IE4
+			if (document.all.item(id).style.display == "none") {
+				document.all(id).style.display = "";
+			} else {
+				document.all(id).style.display = "none";
+			}
+		} else if (document.getElementById) { // for NN6
+			if (document.getElementById(id).style.display == "none") {
+				document.getElementById(id).style.display = "block";
+			} else {
+				document.getElementById(id).style.display = "none";
+			}
+		}
+	}
+
+	//-->
+	</SCRIPT>
+	
+</HEAD>
+
+<BODY>
+	<FORM>
+	<TABLE border="1">
+	<TR>
+		<TD><INPUT type="text"></TD>
+		<TD><INPUT type="text"></TD>
+		<TD id="change" style="display:;"><INPUT type="text"></TD>
+	</TR>
+	<TR>
+		<TD><INPUT type="text"></TD>
+		<TD><INPUT type="text"></TD>
+		<TD id="change" style="display:;"><INPUT type="text"></TD>
+	</TR>
+	</TABLE>
+	<INPUT type="button" value="  ≡  ☆  ≡  " onClick="toggle('change');">
+	
+	</FORM>
+	
+	TDにidをつけても、JavaScript的にはTDはオブジェクトじゃない。<BR>
+	だから、オブジェクトがありません！みたいなエラーが出る。<BR>
+	<hr>
+
+
+
+	<FORM>
+	<TABLE border="1">
+	<TR>
+		<TD><INPUT type="text"></TD>
+		<TD><INPUT type="text"></TD>
+		<TD id="change21">21<DIV id="change24">24</DIV></TD>
+	</TR>
+	<TR>
+		<TD><INPUT type="text"></TD>
+		<TD><INPUT type="text"></TD>
+		<TD id="change21">21<DIV id="change22">22<INPUT type="text"></DIV></TD>
+	</TR>
+	</TABLE>
+	<DIV id="change23">23</DIV>
+	<DIV id="change25">25<INPUT type="text"></DIV>
+	26<INPUT type="text" id="26"><BR>
+	<INPUT type="button" value="  ≡  ☆  ≡  21" onClick="toggle('change21');">
+	<INPUT type="button" value="  ≡  ☆  ≡  22" onClick="toggle('change22');">
+	<INPUT type="button" value="  ≡  ☆  ≡  23" onClick="toggle('change23');">
+	<INPUT type="button" value="  ≡  ☆  ≡  24" onClick="toggle('change24');">
+	<INPUT type="button" value="  ≡  ☆  ≡  25" onClick="toggle('change25');">
+	<INPUT type="button" value="  ≡  ☆  ≡  26" onClick="toggle('change26');">
+	
+	</FORM>
+	
+	やっぱりTDにはidをつけても動いてくれない。<br>
+	TDの中にDIVを書けば、なんとか制御できる。でも箱は残る。<BR><BR>
+	INPUTタグもダメ。<BR>
+	INPUTは、displayが制御できないだけで、valueなどはできる(はず)。
+
+
+
+	
+</BODY>
+
+</HTML>

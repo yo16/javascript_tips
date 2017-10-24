@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>配列のコピー</title>
+	<script language="JavaScript">
+	var ary1 = [1,2,3];
+	
+	// 参照渡しされている！
+	var ary2 = ary1;
+	ary2[1] *= 10;
+	
+	console.log(ary1);
+	// → 1, 20, 3
+	
+	// 値コピー(shallow copy)する場合
+	var ary3 = [].concat( ary1 );
+	ary3[1] *= 10;
+	console.log(ary1);
+	// → 1, 20, 3
+	
+	
+	
+	// ------------
+	// ２次元配列で確認
+	var ary11 = [[1,2,3],[4,5,6]];
+	
+	var ary12 = [].concat( ary11 );
+	ary12[0][1] *= 10;
+	
+	console.log(ary11);
+	// → [[1,20,3], [4,5,6]]
+	// だめー
+	
+
+
+
+	// 完全コピー
+	// https://okwave.jp/qa/q3688292.html
+	Array.prototype.clone = function() {
+		// 自分自身が配列かをチェック
+		if ( this[0].constructor == Array ) {
+			var ar, n;
+			// 新しい配列を用意する
+			ar = new Array( this.length );
+			for ( n = 0; n < ar.length; n++ ) {
+				// 再起呼び出しで配列の中身をコピー
+				ar[n] = this[n].clone();
+			}
+			// 作成した配列を返す
+			return ar;
+		}
+		return Array.apply( null, this );
+	}
+	
+	var ary21 = [[1,2,3],[4,5,6]];
+	
+	var ary22 = ary21.clone();
+	ary22[0][1] *= 10;
+	
+	console.log(ary21);
+	// [[1,2,3],[4,5,6]]
+	console.log(ary22);
+	// [[1,20,3],[4,5,6]]
+	
+	</script>
+</head>
+
+<body>
+	
+</body>
+
+</html>

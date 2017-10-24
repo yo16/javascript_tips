@@ -1,0 +1,38 @@
+<html>
+
+<head>
+	<title>”’l</title>
+	<script language="JavaScript">
+	var num = 1234567890;
+	
+	alert(numCommaFormat(num));
+	
+	alert(round(5/2,1));
+	
+function numCommaFormat(n)
+{
+	var strNum = String(num);
+	var strRet = '';
+	
+	// i‚ÍŒã‚ë‚©‚ç
+	var cnt=0;
+	for( var i=strNum.length-1; i>=0; i-- )
+	{
+		if( cnt==3 ){
+			strRet = ',' + strRet;
+			cnt = 0;
+		}
+		
+		cnt++;
+		strRet = strNum.substr(i,1) + strRet;
+	}
+	return strRet;
+}
+	
+	
+	</script>
+</head>
+<body>
+</body>
+
+</html>

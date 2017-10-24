@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="Keywords" content="" />
+	<meta name="Description" content="" />
+	<title>str to date</title>
+	<script type="text/javascript">
+	function str2dt( str ){
+		var parts = str.split("/");
+		if( parts.length != 3 ){
+			// スラッシュが３つでない場合はvalidate error
+			console.log("セパレータ/の数が不正:"+str);
+			return null;
+		}
+		for( var i=0; i<3; i++ ){
+			if( ! parts[i].match(/^[0-9]+$/) )
+			{
+				// 数字以外の文字が入っていたら、validate error
+				console.log("数字以外の文字が入っている:"+parts[i]);
+				return null;
+			}
+		}
+		var y = parts[0];
+		var m = parts[1];
+		var d = parts[2];
+		if( !((1950 <= y) && (y <= 2050)) ){
+			// 年が1950～2050より外（範囲は適当）
+			console.log("年が1950～2050より外:"+y);
+			return null;
+		}
+		if( !((1 <= m) && (m <= 12)) ){
+			// 月が1～12以外
+			console.log("月が1～12以外:"+m);
+			return null;
+		}
+		if( !((1 <= d) && (d <= 31)) ){
+			// 日が1～31以外
+			// うるう年とかめんどくさいので、最小のチェック
+			console.log("日が1～31以外:"+m);
+			return null;
+		}
+		
+		// 月は0から始まるので、-1する
+		return new Date(y, m-1, d);
+	}
+	
+	function str2tm( str ){
+		var parts = str.split(":");
+		if( parts.length != 3 ){
+			// コロンが３つでない場合はvalidate error
+			console.log("セパレータ:の数が不正:"+str);
+			return null;
+		}
+		for( var i=0; i<3; i++ ){
+			if( ! parts[i].match(/^[0-9]+$/) )
+			{
+				// 数字以外の文字が入っていたら、validate error
+				console.log("数字以外の文字が入っている:"+parts[i]);
+				return null;
+			}
+		}
+		var h = parts[0];
+		var m = parts[1];
+		var s = parts[2];
+		if( !((0 <= h) && (h <= 23)) ){
+			// 時が0～23以外
+			console.log("時が0～23以外:"+h);
+			return null;
+		}
+		if( !((0 <= m) && (m <= 59)) ){
+			// 分が0～59以外
+			console.log("分が0～59以外:"+m);
+			return null;
+		}
+		if( !((0 <= s) && (s <= 59)) ){
+			// 秒が0～59以外
+			console.log("秒が0～59以外:"+m);
+			return null;
+		}
+		
+		// 年月日は適当
+		var today = new Date();
+		return new Date(today.getFullYear(), today.getMonth(), today.getDate(), h, m, s);
+	}
+	
+	
+	
+	
+	
+	
+	
+	alert( str2dt("2016/4/4") );
+	alert( str2tm("3:54:32") );
+	
+	</script>
+</head>
+
+<body>
+	
+</body>
+
+</html>

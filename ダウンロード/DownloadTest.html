@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>ダウンロードのテスト</title>
+	<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+	
+	<script>
+	$(document).ready(function(){
+		$('#btnDownload').click(function(){
+			var content = "file_download_test";
+			var fileName = "testfile.xlsx";
+			
+			var blob = new Blob([content]);
+			var url = window.URL || window.webkitURL;
+			var blobURL = url.createObjectURL(blob);
+			
+			var elm = document.createElement('a');
+			elm.download = fileName;
+			elm.href = blobURL;
+			elm.click();
+			
+			alert('kita');
+		});
+	});
+	
+	</script>
+</head>
+
+<body>
+	任意のファイルをJavaScriptでダウンロードさせるテスト<br />
+	<hr />
+	<input type="button" value="download!!" id="btnDownload" />
+	<a id="download" target="_blank">ダウンロード</a>
+</body>
+
+</html>

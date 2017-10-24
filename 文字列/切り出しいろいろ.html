@@ -1,0 +1,64 @@
+<html>
+
+<head>
+	<meta http-equiv="content-type" conent="text/html; charset=utf-8" />
+	<title>文字列の切り出し</title>
+</head>
+
+<body>
+	<script type="text/javascript" language="javascript">
+	// 文字列の切り出し
+	// slice関数、substr関数、substring関数がある。
+	// left関数、right関数はない。
+	
+	var str = "0123456789";
+	
+	// ●slice
+	// 文字列.slice(開始位置 [,終了位置] )
+	// 第２引数省略時は最後まで
+	var str1 = str.slice(2,4);
+	document.write(str1 + "<br />");
+	// →23
+	str1 = str.slice(2);
+	document.write(str1 + "<br />");
+	// →23456789
+	str1 = str.slice(-3);
+	document.write(str1 + "<br />");
+	// →789
+	str1 = str.slice(-3,-2);
+	document.write(str1 + "<br />");
+	// →7
+	
+	
+	// ●substr
+	// 文字列.substr(開始位置 [,切り出す長さ] )
+	// 第２引数省略時は最後まで
+	var str2 = str.substr(2,4);
+	document.write(str2 + "<br />");
+	// →2345
+	
+	str2 = str.substr(2);
+	document.write(str2 + "<br />");
+	// →2356789
+	
+	str2 = str.substr(-3);
+	document.write(str2 + "<br />");
+	// →789
+	
+	str2 = str.substr(-3,-1);
+	document.write(str2 + "<br />");
+	// →空
+	
+	
+	// ●substring
+	// 文字列.substring(開始位置 , 終了位置)
+	// 第２引数省略はできない
+	var str3 = str.substring(2,4);
+	document.write(str3 + "<br />");
+	// →23
+	
+	
+	</script>
+</body>
+
+</html>

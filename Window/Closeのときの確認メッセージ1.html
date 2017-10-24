@@ -1,0 +1,28 @@
+<html>
+
+<head>
+	<title>WindowCloseのときの確認メッセージ</title>
+	<script language="JavaScript">
+	<!--
+		function _open(url)
+		{
+			window.open(
+				url,
+				"betsumado",
+				"toolbar=no,location=no,status=no,menubar=yes,scrollbars=yes,resizable=yes"
+			);
+		}
+		function _close()
+		{
+			window.close();
+		}
+	//-->
+	</script>
+</head>
+
+<body>
+	<input type="button" value="開く" onClick="_open('Closeのときの確認メッセージ2.html');"><br />
+	<input type="button" value="閉じる" onClick="_close();">
+</body>
+
+</html>

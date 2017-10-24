@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>配列要素追加</title>
+	<script language="javascript">
+	var a1 = new Array(2);	// 初期要素数２（最終indexでない）
+	a1[0] = "A";
+	a1[1] = "B";
+	a1[2] = "C";
+	a1[3] = "D";
+	
+	var a2 = new Array();	// 初期要素なし
+	a2[0] = "a";
+	a2[1] = "b";
+	a2[2] = "c";
+	a2[3] = "d";
+	// → しれっと追加して問題なさげ
+	
+	var a3 = new Array();
+	a3[0] = "x";
+	a3[1] = "y";
+	a3.push("z");		// 数を意識せず、最後に追加する
+	
+	var a4 = new Array();
+	a4[0] = "a";
+	a4[1] = "b";
+	// a4.push(["c","d"]);
+	// console.log(a4);
+	// (3) ["a", "b", Array(2)]
+	// 間違い注意！
+	
+	// a4 = a4.concat(["c","d"]);
+	// console.log(a4);
+	// (4) ["a", "b", "c", "d"]
+	// okだけど、遅いらしい
+	
+	Array.prototype.push.apply(a4, ["c", "d"]);
+	console.log(a4);
+	// (4) ["a", "b", "c", "d"]
+	// ok。速いらしい
+	
+	
+	</script>
+</head>
+
+<body>
+	<input type="button" value="a1 test" onClick="
+		alert(a1);
+	" />
+	<input type="button" value="a2 test" onClick="
+		alert(a2);
+	" />
+	<input type="button" value="a3 test" onClick="
+		alert(a3);
+	" />
+</body>
+
+</html>

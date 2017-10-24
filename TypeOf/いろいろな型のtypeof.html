@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>いろいろな型</title>
+	<script language="JavaScript">
+	function test1(){
+		console.log(typeof('str'));
+		// string
+		
+		console.log(typeof(123));
+		// number
+		
+		console.log(typeof(3.14));
+		// number
+		
+		console.log(typeof(true));
+		// boolean
+		
+		var str1 = new String('str');
+		console.log(typeof(str1));
+		// object
+		var str2 = new String('xyz');
+		console.log(typeof(str1+str2));
+		// string
+		// objectとしてのStringを演算すると、すぐプリミティブ型のstringに戻る
+	};
+	</script>
+</head>
+
+<body>
+	<input type="button" value="1" onclick="test1();" />
+</body>
+
+</html>

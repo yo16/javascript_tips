@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>正規表現でsplit</title>
+	<script language="JavaScript">
+	var str = "a b	c　d";
+	
+	var ary = str.split(/\s/);
+	
+	for( var i=0; i<ary.length; i++ ){
+		document.writeln("["+i+"] "+ary[i]);
+		document.writeln("<br />");
+	}
+	/*
+	[0] a 
+	[1] b 
+	[2] c 
+	[3] d 
+	*/
+	
+	</script>
+</head>
+
+<body>
+	
+</body>
+
+</html>

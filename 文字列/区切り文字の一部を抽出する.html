@@ -1,0 +1,84 @@
+<HTML>
+
+<HEAD>
+	<TITLE>区切り文字の一部を抽出する</TITLE>
+	
+	
+	<SCRIPT language="JavaScript">
+	<!--
+	
+	function PartSelecter(string, partStr, partNum) {
+		
+		var i;
+		var startPos = -1;
+		var endPos = -1;
+		
+		// partNum回検索
+		for (i=0; i<partNum; i++) {
+			startPos = endPos;
+			endPos = string.indexOf(partStr, ++startPos);
+		}
+		
+		var rtnStr = "";
+		
+		// 取り出し
+		rtnStr = string.substring(startPos, endPos);
+		
+		return(rtnStr);
+		
+	}
+	//-->
+	</SCRIPT>
+	
+	
+</HEAD>
+
+<BODY>
+
+
+
+
+<PRE>
+
+<FONT size=+4><B>PartSelecter</B>(<I>string</I>,<I>区切り文字</I>,<I>番号</I>)</FONT>
+
+文字列<I>string</I>の一部を抽出する。
+<I>string</I>を<I>区切り文字</I>で区切って、<I>番号</I>番目の文字列を返す。
+
+</PRE>
+
+<TABLE border="1" cellpadding="20">
+<TR><TH>
+	== 例 ==
+</TH>
+</TR>
+<TR><TD>
+<PRE>
+PartSelecter("aa/bb/cc/dd", "/", 3)
+                                      → cc
+
+PartSelecter("aa-bb-cc-dd", "-", 1)
+                                      → aa
+
+PartSelecter("aa;bb;cc;dd", ";", 10)
+                                      → nul
+
+PartSelecter("aa@bb@cc@dd", "@", -1)
+                                      → nul
+</PRE>
+</TD>
+</TR>
+</TABLE>
+<BR><BR>
+<PRE>
+作成履歴
+・2002/12/6作成
+      変な値を入れられたときの対応はしてません！
+</PRE>
+<BR>
+
+<INPUT type="button" value="PartSelecter('aa-bb-cc-dd', '-', 2)" onclick="alert(PartSelecter('aa-bb-cc-dd', '-', 2));">
+
+</BODY>
+
+</HTML>

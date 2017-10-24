@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>カレンダー</title>
+	<script type="text/javascript" src="./jquery/jquery-2.1.0.min.js" ></script>
+	<script type="text/javascript" src="./jquery/jquery-ui.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="./jquery/css/jquery-ui.min.css" />
+	<link rel="stylesheet" type="text/css" href="./jquery/css/jquery-ui.structure.min.css" />
+	<link rel="stylesheet" type="text/css" href="./jquery/css/jquery-ui.theme.min.css" />
+	<script language="JavaScript">
+	$(document).ready(function(){
+		// カレンダーの初期設定
+		$.datepicker.setDefaults({
+			dateFormat : "yymmdd",		// YYYYMMDD形式
+			showOtherMonths : true,
+			selectOtherMonths : true
+		});
+		
+		// リスナー登録
+		$("#calenderTest").datepicker();
+	});
+	</script>
+</head>
+
+<body>
+	<input type="text" id="calenderTest" />
+</body>
+
+</html>

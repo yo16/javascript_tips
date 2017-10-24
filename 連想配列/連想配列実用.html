@@ -1,0 +1,47 @@
+<html>
+
+<head>
+	<title>renso test</title>
+	<script language="JavaScript">
+	<!--
+
+var clsA = function()
+{
+};
+var clsB = function()
+{
+};
+
+var testVal = new Object();
+
+function add( key_of_A, key_of_B, val_of_b ){
+	if( testVal[key_of_A] == null ){
+		testVal[key_of_A] = new Object();
+	}
+	if( testVal[key_of_A][key_of_B] == null ){
+		testVal[key_of_A][key_of_B] = new Array();
+	}
+	testVal[key_of_A][key_of_B][testVal[key_of_A][key_of_B].length] = val_of_b;
+};
+
+add('a','x','1');
+add('a','x','2');
+add('a','x','3');
+add('a','x','4');
+add('a','y','1');
+add('b','x','1');
+add('b','x','2');
+
+alert('a-x:'+testVal['a']['x'].length);
+alert('a-y:'+testVal['a']['y'].length);
+// alert('a-z:'+testVal['a']['z'].length); // ないものを求めると落ちる
+alert('b-x:'+testVal['b']['x'].length);
+	//-->
+	</script>
+</head>
+
+<body>
+	
+</body>
+
+</html>

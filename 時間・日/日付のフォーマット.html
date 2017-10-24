@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>日付のフォーマット</title>
+	<script type="text/javascript">
+	<!--
+	
+	Date.prototype.toString = function( format )
+	{
+		var date = this;
+		
+		// デフォルト設定
+		if ( !format ) format = 'YYYY/MM/DD hh:mm:ss.SSSS';
+		
+		format = format.replace( /YYYY/g, date.getFullYear() );
+		format = format.replace( /MM/g, ( '0' + ( date.getMonth()+1 ) ).slice(-2) );
+		format = format.replace( /DD/g, ( '0' + date.getDate() ).slice(-2) );
+		format = format.replace( /hh/g, ( '0' + date.getHours() ).slice(-2) );
+		format = format.replace( /mm/g, ( '0' + date.getMinutes() ).slice(-2) );
+		format = format.replace( /ss/g, ( '0' + date.getSeconds() ).slice(-2) );
+		if ( format.match( /S/g ) ){
+			var milliSeconds = ( '00' + date.getMilliseconds() ).slice(-3);
+			var slen = format.match( /S/g ).length;
+			for( var i=0; i<slen; i++ ) format = format.replace( /S/, milliSeconds.substring( i, i+1 ) );
+		}
+		
+		return format;
+	}
+	
+	
+	
+	-->
+	</script>
+</head>
+
+<body>
+	prototypeでDate型に関数を定義<br />
+	
+	<input type="button" value="today test" onClick="alert((new Date).toString('YYYY-MM-DD .... hh:mm:ss'));"
+</body>
+
+</html>

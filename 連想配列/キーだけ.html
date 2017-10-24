@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="Keywords" content="" />
+	<meta name="Description" content="" />
+	<title></title>
+	<script language="JavaScript">
+//	var onlykey = {"aa", "bb"};	// こういう書き方は許されないらしい
+	var onlykey = {"aa":null, "bb":null};
+	
+	if( "aa" in onlykey ) alert("exists");
+	if( !("xx" in onlykey) ) alert("not exists");
+	
+	</script>
+</head>
+
+<body>
+	
+</body>
+
+</html>

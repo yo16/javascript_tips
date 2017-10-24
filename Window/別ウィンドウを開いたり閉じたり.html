@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+	<title>別ウィンドウを開いたり閉じたり</title>
+	
+	<script language="JavaScript">
+	<!--
+		
+		var win1;
+		var win2;
+		
+		
+		function funcOpenWindow( nWinNo ){
+			if( nWinNo == 1 ){
+				win1 = window.open("別ウィンドウを開いたり閉じたり_1.html", "w1");
+			}else if( nWinNo == 2 ){
+				win2 = window.open("別ウィンドウを開いたり閉じたり_2.html", "w2");
+			}
+		}
+		
+		function funcCloseWindow( nWinNo ){
+			if( nWinNo == 1 ){
+				if( win1 ){
+					win1.close();
+				}
+			}else if( nWinNo == 2 ){
+				if( win2 ){
+					win2.close();
+				}
+			}
+		}
+		
+	//-->
+	</script>
+</head>
+
+<body>
+	<table border="1">
+	<tr>
+		<td>ウィンドウ１</td>
+		<td>
+			<input type="button" value="open" onclick="funcOpenWindow(1);" />
+		</td>
+		<td>
+			<input type="button" value="close" onclick="funcCloseWindow(1);" />
+		</td>
+	</tr>
+	<tr>
+		<td>ウィンドウ２</td>
+		<td>
+			<input type="button" value="open" onclick="funcOpenWindow(2);" />
+		</td>
+		<td>
+			<input type="button" value="close" onclick="funcCloseWindow(2);" />
+		</td>
+	</tr>
+</body>
+
+</html>

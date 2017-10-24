@@ -1,0 +1,52 @@
+<HTML>
+
+<HEAD>
+	<TITLE>リモコンぽい～</TITLE>
+	
+	<SCRIPT language="JavaScript">
+	<!--
+	
+	function wOpen() {
+		window.open('別ウィンドウの操作_2.html', 'clnt', 'width=200,height=200');
+	}
+	
+	//-->
+	</SCRIPT>
+	
+</HEAD>
+
+<BODY>
+	別ウィンドウを開いて、そっから元のウィンドウを操作する。<BR>
+	リモコンみたいな感じ。<BR><BR>
+	<HR>
+	<BR>
+		<FORM name="mainF">
+	<TABLE border="1" cellpadding="10">
+	<TR><TD align="center"bgcolor="#999999">
+		<INPUT type="button" value="リモコン取り出し" onClick="wOpen();"><BR>
+	</TD></TR>
+	<TR><TD align="center" bgcolor="#CCCCCC">
+		fld1:<INPUT type="text" name="fld1"><BR>
+		fld2:<INPUT type="text" name="fld2"><BR>
+		fld3:<INPUT type="text" name="fld3"><BR>
+		<BR>
+		chk1:<INPUT type="checkbox" name="chk1">&nbsp;&nbsp;&nbsp;&nbsp;
+		chk2:<INPUT type="checkbox" name="chk2">&nbsp;&nbsp;&nbsp;&nbsp;
+		chk3:<INPUT type="checkbox" name="chk3"><BR>
+		<BR>
+		slct:
+		<SELECT name="slct">
+			<OPTION value="1">：：１：：
+			<OPTION value="2">：：２：：
+			<OPTION value="3">：：３：：
+		</SELECT>
+	</TD></TR>
+	</TABLE>
+		</FORM>
+	<BR><BR>
+	<HR>
+	<BR>
+	たぶんセキュリティ上の問題で、別ウィンドウを名指しで指定できないんだと思ふ。2002/09/27 09:12:19
+</BODY>
+
+</HTML>

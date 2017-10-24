@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>切り出し</title>
+</head>
+
+<body>
+	<script language="JavaScript">
+	
+	var str = "0123456789";
+	
+	// substr(start [,len])
+	document.write("substr(start [,len])<br />");
+	document.write("str.substr(2,3)=" + str.substr(2,3) + ".");	// 234
+	document.write("<br />");
+	document.write("str.substr(5)=" + str.substr(5) + ".");		// 56789
+	document.write("<br />");
+	document.write("str.substr(0,0)=" + str.substr(0,0) + ".");	// （空）
+	document.write("<br />");
+	document.write("str.substr(-4,2)=" + str.substr(-4,2) + ".");	// 67	＜マイナスだと・・めんどくさい
+	
+	document.write("<hr />");
+	
+	// slice(start [,end])
+	document.write("slice(start [,end])<br />");
+	document.write("str.slice(2,3)=" + str.slice(2,3) + ".");	// 2
+	document.write("<br />");
+	document.write("str.slice(2,2)=" + str.slice(2,2) + ".");	// （空）	＜同じ値だと空
+	document.write("<br />");
+	document.write("str.slice(2,1)=" + str.slice(2,1) + ".");	// （空）	＜逆順だと空
+	document.write("<br />");
+	document.write("str.slice(5)=" + str.slice(5) + ".");	// 56789
+	document.write("<br />");
+	document.write("str.slice(-2)=" + str.slice(-2) + ".");	// 89	＜後ろから
+	document.write("<br />");
+	
+	document.write("<hr />");
+	
+	// substring(start ,end)
+	document.write("str.substring(2,3)=" + str.substring(2,3) + ".");	// 2
+	document.write("<br />");
+	document.write("str.substring(2,2)=" + str.substring(2,2) + ".");	// （空）
+	document.write("<br />");
+	document.write("str.substring(4,2)=" + str.substring(4,2) + ".");	// 23	＜逆順だと勝手に正してくれる
+	document.write("<br />");
+	
+	
+	
+	</script>
+	
+</body>
+
+</html>

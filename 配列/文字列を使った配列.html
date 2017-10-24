@@ -1,0 +1,40 @@
+<html>
+
+<head>
+	<title>文字列を使った配列</title>
+	
+	<script language="javascript">
+	<!--
+	
+	function test() {
+		xx = new Array();
+		xx["Sun"] = "Sunday";
+		xx["Mon"] = "Monday";
+		alert(xx["Sun"]);
+	}
+	
+	function test2() {
+		yy = new Array();
+//		yy["Sun"] = "Sunday";
+//		yy["Mon"] = "Monday";
+		
+		yy["Sun"][0] = "Sun_0";
+		yy["Sun"][1] = "Sun_1";
+		yy["Mon"]["Mon0"] = "Mon_0";
+		yy["Mon"]["Mon1"] = "Mon_1";
+		alert(yy["Sun"][0]);
+		alert(yy["Mon"]["Mon1"]);
+	}
+	
+	//-->
+	</script>
+</head>
+
+<body>
+	いかが？
+	<form>
+	<input type="button" value="一次元" onClick="test();"><br><br>
+	<input type="button" value="二次元" onClick="test2();"><br>
+	二次元はだめらしい。。。2002/07/19 20:07:05
+	</form>
+</body>

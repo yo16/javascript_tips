@@ -1,0 +1,41 @@
+<HTML>
+
+<HEAD>
+	<TITLE>indexOf</TITLE>
+</HEAD>
+
+<BODY>
+<DIV CLASS=item>◆ <A NAME="indexOf"><I>string</I>.indexOf(<I>key</I> <TT>[, <I>from</I>]</TT>)</A> (e3/N2)</DIV>
+<DIV CLASS=i>
+<P><I>string</I> の <I>from</I> 番目（最初の文字を0番目とする）から後方に検索し、最初に <I>key</I> が現れる位置（<I>string</I> の最初の文字を0番目とする）を、見つからない場合は -1 を返します。</P>
+<TABLE border="1" width="100%">
+<TR><TD>
+xx = "ABCABC".indexOf("C");       // 2を返す<BR>
+xx = "ABCABC".indexOf("C", 3);    // 5を返す
+</TD></TR>
+</TABLE>
+</DIV>
+
+<BR><BR>
+<HR>
+
+	<FORM name="frm">
+	
+	<INPUT type="text" name="paramStr" value="ABCABC">.
+	indexOf("<INPUT type="text" name="param1" value="C">",<INPUT type="text" name="param2" value="3">)
+	
+	
+	<INPUT type="button" value="=>" onClick="
+		document.frm.ans.value = document.frm.paramStr.value.indexOf(document.frm.param1.value, document.frm.param2.value);
+	">
+	<INPUT type="text" name="ans">
+	
+	</FORM>
+
+
+
+
+	<BR><BR><BR><BR>
+</BODY>
+
+</HTML>
