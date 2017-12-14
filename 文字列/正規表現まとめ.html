@@ -53,26 +53,29 @@
 	var j=0;
 	var ret3;
 	while( (ret3 = objReg2.exec(str)) != null ){
+		console.log(j+'‰ñ–Ú‚Ìexec : len='+ret3.length);
 		for( var i=0; i<ret3.length; i++ ){
-			console.log(j+'‰ñ–Ú‚Ìexec : ('+i+')='+ret3[i]);
-			console.log('lastIndex:'+objReg2.lastIndex);
+			console.log('  ('+i+')='+ret3[i]);
+			console.log('  lastIndex:'+objReg2.lastIndex);
 		}
 		j++;
 	}
 	//--- 3 ---
-	//0‰ñ–Ú‚Ìexec : (0)=abc123
-	//lastindex:6
-	//0‰ñ–Ú‚Ìexec : (1)=abc
-	//lastindex:6
-	//1‰ñ–Ú‚Ìexec : (0)=abc456
-	//lastindex:12
-	//1‰ñ–Ú‚Ìexec : (1)=abc
-	//lastindex:12
-	//2‰ñ–Ú‚Ìexec : (0)=def789
-	//lastindex:18
-	//2‰ñ–Ú‚Ìexec : (1)=def
-	//lastindex:18
-	
+	//0‰ñ–Ú‚Ìexec : len=2
+	//  (0)=abc123
+	//  lastIndex:6
+	//  (1)=abc
+	//  lastIndex:6
+	//1‰ñ–Ú‚Ìexec : len=2
+	//  (0)=abc456
+	//  lastIndex:12
+	//  (1)=abc
+	//  lastIndex:12
+	//2‰ñ–Ú‚Ìexec : len=2
+	//  (0)=def789
+	//  lastIndex:18
+	//  (1)=def
+	//  lastIndex:18
 	
 	//-->
 	</script>
