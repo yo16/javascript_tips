@@ -1,0 +1,81 @@
+<html>
+
+<head>
+	<title>正規表現でまとめ</title>
+</head>
+
+<body>
+	<script language="JavaScript">
+	<!--
+	
+	var str = "abc123abc456def789ghi";
+	
+	// 文字列中に何度かヒットする場合
+	// - gオプションをつけて、str.match() を使う
+	console.log("--- 1 ---");
+	var objReg1 = new RegExp( "[a-z]+", "g" );		// gオプションをつけると、何度もヒットする
+	var ret1 = str.match( objReg1 );
+	console.log(ret1.length);
+	for( var i=0; i<ret1.length; i++ ){
+		console.log(i+':'+ret1[i]);
+	}
+	//--- 1 ---
+	//4
+	//0:abc
+	//1:abc
+	//2:def
+	//3:ghi
+	
+	
+	// 丸括弧内の文字を再利用したい場合
+	// - RegExpオブジェクトのexecを使わないと得られない。
+	//   (str.matchは、gオプションの分の配列しか作らない)
+	// - gオプションの有無によらず、１回しか検索しないことに注意。
+	console.log("--- 2 ---");
+	var objReg2 = new RegExp( "([a-z]+)[0-9]+", "g" );		// execを使う場合はgオプションは無意味！
+	var ret2 = objReg2.exec( str );
+	console.log(ret2.length);
+	for( var i=0; i<ret2.length; i++ ){
+		console.log(i+':'+ret2[i]);
+	}
+	//--- 2 ---
+	//2
+	//0:abc123
+	//1:abc
+	
+	
+	// どちらも使いたい場合
+	// - RegExp.exec()は、同じ文字列をもう一度検索すると、
+	//   前回検索した次の文字から検索する。ないとnull。それを利用する。
+	// - 次の文字のindexは、lastIndexというプロパティに入っている。
+	console.log("--- 3 ---");
+	objReg2.lastIndex = 0;			// 前回検索した結果の位置を最初に戻す(objReg2を再利用してるから)
+	var j=0;
+	var ret3;
+	while( (ret3 = objReg2.exec(str)) != null ){
+		for( var i=0; i<ret3.length; i++ ){
+			console.log(j+'回目のexec : ('+i+')='+ret3[i]);
+			console.log('lastIndex:'+objReg2.lastIndex);
+		}
+		j++;
+	}
+	//--- 3 ---
+	//0回目のexec : (0)=abc123
+	//lastindex:6
+	//0回目のexec : (1)=abc
+	//lastindex:6
+	//1回目のexec : (0)=abc456
+	//lastindex:12
+	//1回目のexec : (1)=abc
+	//lastindex:12
+	//2回目のexec : (0)=def789
+	//lastindex:18
+	//2回目のexec : (1)=def
+	//lastindex:18
+	
+	
+	//-->
+	</script>
+</body>
+
+</html>
