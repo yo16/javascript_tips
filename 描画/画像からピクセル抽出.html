@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="Keywords" content="" />
+	<meta name="Description" content="" />
+	<title>画像からピクセル抽出</title>
+	<script language="JavaScript">
+	<!--
+	
+	var img = new Image();
+	img.src = 'rgb100.png';
+	
+	function initialize()
+	{
+		var cvs = document.getElementById('canvas1');
+		var ctx = cvs.getContext('2d');
+		ctx.drawImage(img, 0,0);
+		img.style.display = 'none';
+		cvs.addEventListener('mousemove', pick);
+	}
+	function pick(event)
+	{
+		var x = event.layerX;
+		var y = event.layerY;
+		
+		// for ie
+		var ua = window.navigator.userAgent.toLowerCase();
+		if( (ua.indexOf('msie') != -1) || (ua.indexOf('trident') != -1) ){
+			x -= event.srcElement.offsetLeft;
+			y -= event.srcElement.offsetTop;
+		}
+		
+		var cvs = document.getElementById('canvas1');
+		var ctx = cvs.getContext('2d');
+		var pixel = ctx.getImageData(x, y, 1, 1);
+			// → chromeでローカル環境だと下記エラーが出る。
+			//    Uncaught DOMException: Failed to execute 'getImageData' on 'CanvasRenderingContext2D': The canvas has been tainted by cross-origin data.
+		var data = pixel.data;
+		var rgba = 'rgba(' + data[0] + ',' + data[1] + ',' + 
+			data[2] + ',' + (data[3]/255) + ')';
+		
+		var spn = document.getElementById('span1');
+		spn.style.background = rgba;
+		spn.textContent = rgba;
+	}
+	
+	
+	//-->
+	</script>
+</head>
+
+<body onload="initialize();">
+	マウスオーバーの位置のRGB値を取得<br />
+	<canvas id="canvas1" width="100" height="100"></canvas>
+	<span id="span1" style="width:200px;height:50px"></span>
+	
+	<hr />
+	※chromeでローカル環境だと下記エラーが出る。<br />
+	Uncaught DOMException: Failed to execute 'getImageData' on 'CanvasRenderingContext2D': The canvas has been tainted by cross-origin data.
+	<br />
+	<br />
+	※参考<br />
+	https://developer.mozilla.org/ja/docs/Web/Guide/HTML/Canvas_tutorial/Pixel_manipulation_with_canvas
+</body>
+
+</html>
