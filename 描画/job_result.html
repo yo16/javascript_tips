@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Job Result</title>
+	<script language="JavaScript">
+	<!--
+
+	var results_str = "T_ecv_ACCEPT_ORDER_DATA.csv置き換え,2019-04-07T05:06:10,2019-04-07T05:09:08,00:02:58\n"
+	+ "T_ecv_ACCEPT_ORDER_DATA_union作成,2019-04-07T04:50:55,2019-04-07T05:06:09,00:15:14\n"
+	+ "T_ecv_ACCEPT_ORDER_DETAIL_DATA.csv置き換え,2019-04-07T06:05:34,2019-04-07T06:08:25,00:02:51\n"
+	+ "T_ecv_ACCEPT_ORDER_DETAIL_DATA_union作成,2019-04-07T05:55:36,2019-04-07T06:05:34,00:09:58\n"
+	+ "T_ecv_ORDER_LOG.csv置き換え,2019-04-07T06:03:35,2019-04-07T06:06:07,00:02:32\n"
+	+ "T_ecv_ORDER_LOG_union作成,2019-04-07T05:55:01,2019-04-07T06:03:34,00:08:33\n"
+	+ "T_ecvg_ACCEPT_ORDER_DATA.csv置き換え,2019-04-07T04:52:35,2019-04-07T04:52:53,00:00:18\n"
+	+ "T_ecvg_ACCEPT_ORDER_DATA_union作成,2019-04-07T04:51:34,2019-04-07T04:52:34,00:01:00\n"
+	+ "T_ecvg_ACCEPT_ORDER_DETAIL_DATA.csv作成,2019-04-07T05:55:08,2019-04-07T05:55:26,00:00:18\n"
+	+ "T_ecvg_ACCEPT_ORDER_DETAIL_DATA_union作成,2019-04-07T05:54:35,2019-04-07T05:55:07,00:00:32\n"
+	+ "T_ecvg_ORDER_LOG.csv置き換え,2019-04-07T05:55:05,2019-04-07T05:55:24,00:00:19\n"
+	+ "T_ecvg_ORDER_LOG_union作成,2019-04-07T05:54:35,2019-04-07T05:55:05,00:00:30\n"
+	+ "T_gecs_ACCEPT_ORDER_DATA.csv置き換え,2019-04-07T04:52:58,2019-04-07T04:53:15,00:00:17\n"
+	+ "T_gecs_ACCEPT_ORDER_DATA_union作成,2019-04-07T04:52:33,2019-04-07T04:52:57,00:00:24\n"
+	+ "T_gecs_ACCEPT_ORDER_DETAIL_DATA.csv置き換え,2019-04-07T05:55:58,2019-04-07T05:56:11,00:00:13\n"
+	+ "T_gecs_ACCEPT_ORDER_DETAIL_DATA_union作成,2019-04-07T05:55:34,2019-04-07T05:55:57,00:00:23\n"
+	+ "T_gecs_ORDER_LOG.csv置き換え,2019-04-07T05:55:53,2019-04-07T05:56:05,00:00:12\n"
+	+ "T_gecs_ORDER_LOG_union作成,2019-04-07T05:55:35,2019-04-07T05:55:52,00:00:17\n"
+	//+ "T_man_目標マスタ作成,2019-04-05T19:50:44,2019-04-05T19:50:57,00:00:13\n"
+	+ "M_ec_会員マスタ作成,2019-04-07T06:00:03,2019-04-07T06:31:22,00:31:19\n"
+	+ "C_ecv_受注明細作成,2019-04-07T06:31:25,2019-04-07T07:49:53,01:18:28\n"
+	+ "C_gec_受注明細作成,2019-04-07T10:54:01,2019-04-07T10:59:23,00:05:22\n"
+	//+ "C_tml_受注明細作成,2019-04-01T18:56:17,2019-04-01T18:57:16,00:00:59\n"
+	+ "C_ec_受注明細作成,2019-04-07T12:04:11,2019-04-07T13:14:23,01:10:12\n"
+	+ "C_ec_受注作成,2019-04-07T13:14:23,,\n"
+	+ "C_ec_アクティブ作成,2019-04-07T09:22:37,2019-04-07T11:38:00,02:15:23\n"
+	+ "C_ec_商品作成,2019-04-07T13:14:25,,\n"
+	+ "C_ec_期間別受注作成,2019-04-07T11:38:23,2019-04-07T12:52:10,01:13:47";
+
+	function onload()
+	{
+		/*
+		// canvasに描画
+		var can1 = document.getElementById("can1");
+		var ctx1 = can1.getContext("2d");
+		
+		ctx1.fillStyle ="rgb(200,200,100)";
+		ctx1.fillRect(0,0,50,50);
+		
+		ctx1.fillStyle ="rgb(100,0,0)";
+		ctx1.beginPath();
+		ctx1.arc(25,25, 10, 0, 2*Math.PI, true);
+		ctx1.fill();
+		*/
+
+		// ログを配列にする
+		var log_infos = [];
+		var log_ary = results_str.split(/\r\n|\n/);
+		for( var i=0; i<log_ary.length; i++){
+			var log = log_ary[i];
+			if( log.length==0 ){continue;}
+			var one_log = log.split(/,/);
+
+			log_infos.push({
+				'name' : one_log[0],
+				'start': new Date(Date.parse(one_log[1])),
+				'end'  : new Date(Date.parse(one_log[2]))
+			});
+		}
+		console.log(log_infos);
+
+		// 一番小さい時刻と一番大きな時刻を取得
+		var min_tm = log_infos[0]['start'];
+		var max_tm = log_infos[0]['end'];
+		for( var i=0; i<log_infos.length; i++){
+			if(log_infos[i]['start']<min_tm){ min_tm = log_infos[i]['start']}
+			if(log_infos[i]['end']<min_tm){ min_tm = log_infos[i]['end']}
+			if(log_infos[i]['start']>max_tm){ max_tm = log_infos[i]['start']}
+			if(log_infos[i]['end']>max_tm){ max_tm = log_infos[i]['end']}
+		}
+		console.log('min'+min_tm);
+		console.log('max'+max_tm);
+
+		// 絵の幅を決定
+		var NAME_WIDTH = 300;	// 名前の幅
+		var HOUR_WIDTH = 50;	// １時間の幅
+		var ONE_LINE_HEIGHT = 30;	// １行の高さ
+		var LINE_PADDING = 8;	// padding
+		var width = NAME_WIDTH
+			+ (max_tm.getHours() - min_tm.getHours()) * HOUR_WIDTH;
+		var height = ONE_LINE_HEIGHT * (1+log_infos.length);
+		// キャンバスのサイズを変更する
+		document.getElementById("can1").setAttribute('width', width);
+		document.getElementById("can1").setAttribute('height', height);
+
+		// 描画
+		var can1 = document.getElementById("can1");
+		var ctx1 = can1.getContext("2d");
+		
+		// ヘッダ
+		ctx1.fillStyle = "rgb(150,200,100)";
+		ctx1.fillRect(0,0,width,ONE_LINE_HEIGHT);
+		ctx1.fillStyle = "rgb(200,230,180)";
+		ctx1.fillRect(0,ONE_LINE_HEIGHT+1, NAME_WIDTH,height);
+
+		// 時刻ごとの罫線（縦線）
+		ctx1.strokeStyle = "#f6f6ee";
+		ctx1.lineWidth = 1;
+		for( var i=0; i<(max_tm.getHours() - min_tm.getHours()); i++){
+			ctx1.beginPath();
+			ctx1.moveTo(
+				NAME_WIDTH + HOUR_WIDTH*i, 
+				0
+			)
+			ctx1.lineTo(
+				NAME_WIDTH + HOUR_WIDTH*i, 
+				height
+			)
+			ctx1.closePath();
+			ctx1.stroke();
+		}
+		// ジョブごとの罫線（横線）
+		ctx1.strokeStyle = "#ddc";
+		for( var i=0; i<log_infos.length; i++){
+			ctx1.beginPath();
+			ctx1.moveTo(
+				0, 
+				ONE_LINE_HEIGHT*i
+			)
+			ctx1.lineTo(
+				width,
+				ONE_LINE_HEIGHT*i
+			)
+			ctx1.closePath();
+			ctx1.stroke();
+		}
+		// 時刻
+		ctx1.fillStyle = "rgb(0,0,0)";
+		ctx1.font = "10px メイリオ";
+		var min_hour = max_tm.getHours();
+		for( var i=0; i<(max_tm.getHours() - min_tm.getHours()); i++){
+			ctx1.fillText(
+				(min_hour + i) + ':00',
+				NAME_WIDTH + HOUR_WIDTH * i,
+				ONE_LINE_HEIGHT
+			)
+		}
+
+		// ジョブごとの時刻を描画する
+		// 実行時刻
+		ctx1.fillStyle = "#c66";
+		for( var i=0; i<log_infos.length; i++){
+			var startPos = NAME_WIDTH
+				+ (
+					roundHour(log_infos[i]['start'])
+					- min_tm.getHours()
+				) * HOUR_WIDTH;
+			var endPos = NAME_WIDTH
+				+ (
+					roundHour(log_infos[i]['end'])
+					- min_tm.getHours()
+				) * HOUR_WIDTH;
+			ctx1.fillRect(
+				startPos,
+				ONE_LINE_HEIGHT * (i+1) + LINE_PADDING,
+				endPos - startPos,
+				ONE_LINE_HEIGHT - LINE_PADDING*2
+			);
+		}
+		// ジョブ名
+		ctx1.fillStyle = "rgb(0,0,0)";
+		ctx1.font = (ONE_LINE_HEIGHT-LINE_PADDING*2) + "px メイリオ";
+		for( var i=0; i<log_infos.length; i++){
+			ctx1.fillText(
+				log_infos[i]['name'],
+				LINE_PADDING,
+				ONE_LINE_HEIGHT * (i+2) - LINE_PADDING
+			)
+		}
+
+	}
+
+	// 日時の時・分・秒から、時の小数点にする
+	function roundHour(dt){
+		return dt.getHours() + dt.getMinutes()/60 + dt.getSeconds()/(60*60);
+	}
+	
+	// -->
+	</script>
+</head>
+
+<body onload="onload()">
+    <canvas
+        id="can1"
+        width="50" height="50"
+        style="border:1px solid #393"
+    ></canvas>
+</body>
+
+</html>

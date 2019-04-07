@@ -4,38 +4,52 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<title>描画キソ</title>
 	<script language="JavaScript">
-	
+
 	function drawKiso(){
 		var can = document.getElementById("sample");
 		if( can.getContext ){
 			var context = can.getContext("2d");
-			
+
 			// fillRect
 			context.fillStyle = "rgb(255,215,0)";
 			context.fillRect(0, 0, 100, 50);
-			
+
+			context.lineWidth = 10;
 			// strokeRect
 			context.strokeStyle = "rgb(255,0,0)";
 			context.strokeRect(100,0, 100, 50);
-			
+
 			// arc
 			// 到達角度(第5引数)の位置が時計回りに指定した角度なので注意
 			context.beginPath();
 			context.strokeStyle = "rgb(0,255,0)";
 			context.arc(250,50, 50, 0, Math.PI/3, true);
 			context.stroke();
-			
+
 			// line
 			context.beginPath();
 			context.strokeStyle = "rgb(0,0,255)";
 			context.moveTo(300,0);
 			context.lineTo(350,50);
 			context.stroke();
+			
+			// 破線
+			context.setLineDash([79, 10, 1, 10]);
+			// 有,無,有,無・・・で指定する
+			// 奇数だとその後反転するので、使わない方が良さそう。
+			context.beginPath();
+			context.strokeStyle = "rgb(255, 0, 0)";
+			context.moveTo(350, 0);
+			context.lineTo(400, 0);
+			context.lineTo(400, 50);
+			context.lineTo(350, 50);
+			context.lineTo(350, 0);
+			context.stroke();
 		}else{
 			alert('対応していません!');
 		}
 	}
-	
+
 	</script>
 </head>
 
