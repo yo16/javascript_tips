@@ -7,51 +7,41 @@
 	<script language="JavaScript">
 	<!--
 
-	var results_str = "T_ecv_ACCEPT_ORDER_DATA.csv置き換え,2019-04-07T05:06:10,2019-04-07T05:09:08,00:02:58\n"
-	+ "T_ecv_ACCEPT_ORDER_DATA_union作成,2019-04-07T04:50:55,2019-04-07T05:06:09,00:15:14\n"
-	+ "T_ecv_ACCEPT_ORDER_DETAIL_DATA.csv置き換え,2019-04-07T06:05:34,2019-04-07T06:08:25,00:02:51\n"
-	+ "T_ecv_ACCEPT_ORDER_DETAIL_DATA_union作成,2019-04-07T05:55:36,2019-04-07T06:05:34,00:09:58\n"
-	+ "T_ecv_ORDER_LOG.csv置き換え,2019-04-07T06:03:35,2019-04-07T06:06:07,00:02:32\n"
-	+ "T_ecv_ORDER_LOG_union作成,2019-04-07T05:55:01,2019-04-07T06:03:34,00:08:33\n"
-	+ "T_ecvg_ACCEPT_ORDER_DATA.csv置き換え,2019-04-07T04:52:35,2019-04-07T04:52:53,00:00:18\n"
-	+ "T_ecvg_ACCEPT_ORDER_DATA_union作成,2019-04-07T04:51:34,2019-04-07T04:52:34,00:01:00\n"
-	+ "T_ecvg_ACCEPT_ORDER_DETAIL_DATA.csv作成,2019-04-07T05:55:08,2019-04-07T05:55:26,00:00:18\n"
-	+ "T_ecvg_ACCEPT_ORDER_DETAIL_DATA_union作成,2019-04-07T05:54:35,2019-04-07T05:55:07,00:00:32\n"
-	+ "T_ecvg_ORDER_LOG.csv置き換え,2019-04-07T05:55:05,2019-04-07T05:55:24,00:00:19\n"
-	+ "T_ecvg_ORDER_LOG_union作成,2019-04-07T05:54:35,2019-04-07T05:55:05,00:00:30\n"
-	+ "T_gecs_ACCEPT_ORDER_DATA.csv置き換え,2019-04-07T04:52:58,2019-04-07T04:53:15,00:00:17\n"
-	+ "T_gecs_ACCEPT_ORDER_DATA_union作成,2019-04-07T04:52:33,2019-04-07T04:52:57,00:00:24\n"
-	+ "T_gecs_ACCEPT_ORDER_DETAIL_DATA.csv置き換え,2019-04-07T05:55:58,2019-04-07T05:56:11,00:00:13\n"
-	+ "T_gecs_ACCEPT_ORDER_DETAIL_DATA_union作成,2019-04-07T05:55:34,2019-04-07T05:55:57,00:00:23\n"
-	+ "T_gecs_ORDER_LOG.csv置き換え,2019-04-07T05:55:53,2019-04-07T05:56:05,00:00:12\n"
-	+ "T_gecs_ORDER_LOG_union作成,2019-04-07T05:55:35,2019-04-07T05:55:52,00:00:17\n"
-	//+ "T_man_目標マスタ作成,2019-04-05T19:50:44,2019-04-05T19:50:57,00:00:13\n"
-	+ "M_ec_会員マスタ作成,2019-04-07T06:00:03,2019-04-07T06:31:22,00:31:19\n"
-	+ "C_ecv_受注明細作成,2019-04-07T06:31:25,2019-04-07T07:49:53,01:18:28\n"
-	+ "C_gec_受注明細作成,2019-04-07T10:54:01,2019-04-07T10:59:23,00:05:22\n"
-	//+ "C_tml_受注明細作成,2019-04-01T18:56:17,2019-04-01T18:57:16,00:00:59\n"
-	+ "C_ec_受注明細作成,2019-04-07T12:04:11,2019-04-07T13:14:23,01:10:12\n"
-	+ "C_ec_受注作成,2019-04-07T13:14:23,,\n"
-	+ "C_ec_アクティブ作成,2019-04-07T09:22:37,2019-04-07T11:38:00,02:15:23\n"
-	+ "C_ec_商品作成,2019-04-07T13:14:25,,\n"
-	+ "C_ec_期間別受注作成,2019-04-07T11:38:23,2019-04-07T12:52:10,01:13:47";
+	var results_str = 
+		"T_ecv_ACCEPT_ORDER_DATA.csv置き換え,2019-04-08T05:04:38,2019-04-08T05:07:33,00:02:55\n"
+		+ "T_ecv_ACCEPT_ORDER_DATA_union作成,2019-04-08T04:50:59,2019-04-08T05:04:37,00:13:38\n"
+		+ "T_ecv_ACCEPT_ORDER_DETAIL_DATA.csv置き換え,2019-04-08T06:05:45,2019-04-08T06:08:32,00:02:47\n"
+		+ "T_ecv_ACCEPT_ORDER_DETAIL_DATA_union作成,2019-04-08T05:55:39,2019-04-08T06:05:43,00:10:04\n"
+		+ "T_ecv_ORDER_LOG.csv置き換え,2019-04-08T06:03:21,2019-04-08T06:05:51,00:02:30\n"
+		+ "T_ecv_ORDER_LOG_union作成,2019-04-08T05:55:07,2019-04-08T06:03:20,00:08:13\n"
+		+ "T_ecvg_ACCEPT_ORDER_DATA.csv置き換え,2019-04-08T04:52:35,2019-04-08T04:52:51,00:00:16\n"
+		+ "T_ecvg_ACCEPT_ORDER_DATA_union作成,2019-04-08T04:51:37,2019-04-08T04:52:33,00:00:56\n"
+		+ "T_ecvg_ACCEPT_ORDER_DETAIL_DATA.csv作成,2019-04-08T05:55:16,2019-04-08T05:55:36,00:00:20\n"
+		+ "T_ecvg_ACCEPT_ORDER_DETAIL_DATA_union作成,2019-04-08T05:54:40,2019-04-08T05:55:16,00:00:36\n"
+		+ "T_ecvg_ORDER_LOG.csv置き換え,2019-04-08T05:55:11,2019-04-08T05:55:30,00:00:19\n"
+		+ "T_ecvg_ORDER_LOG_union作成,2019-04-08T05:54:39,2019-04-08T05:55:10,00:00:31\n"
+		+ "T_gecs_ACCEPT_ORDER_DATA.csv置き換え,2019-04-08T04:53:02,2019-04-08T04:53:14,00:00:12\n"
+		+ "T_gecs_ACCEPT_ORDER_DATA_union作成,2019-04-08T04:52:37,2019-04-08T04:53:01,00:00:24\n"
+		+ "T_gecs_ACCEPT_ORDER_DETAIL_DATA.csv置き換え,2019-04-08T05:55:59,2019-04-08T05:56:12,00:00:13\n"
+		+ "T_gecs_ACCEPT_ORDER_DETAIL_DATA_union作成,2019-04-08T05:55:38,2019-04-08T05:55:58,00:00:20\n"
+		+ "T_gecs_ORDER_LOG.csv置き換え,2019-04-08T05:55:55,2019-04-08T05:56:07,00:00:12\n"
+		+ "T_gecs_ORDER_LOG_union作成,2019-04-08T05:55:37,2019-04-08T05:55:54,00:00:17\n"
+		+ "T_man_目標マスタ作成,2019-04-05T19:50:44,2019-04-05T19:50:57,00:00:13\n"
+		+ "M_ec_会員マスタ作成,2019-04-08T06:00:03,2019-04-08T06:30:43,00:30:40\n"
+		+ "C_ecv_受注明細作成,2019-04-08T06:30:48,2019-04-08T07:29:31,00:58:43\n"
+		+ "C_gec_受注明細作成,2019-04-08T06:30:51,2019-04-08T06:35:30,00:04:39\n"
+		+ "C_tml_受注明細作成,2019-04-01T18:56:17,2019-04-01T18:57:16,00:00:59\n"
+		+ "C_ec_受注明細作成,2019-04-08T07:29:33,2019-04-08T07:57:32,00:27:59\n"
+		+ "C_ec_受注作成,2019-04-08T07:57:34,2019-04-08T08:15:29,00:17:55\n"
+		+ "C_ec_アクティブ作成,2019-04-08T08:15:30,2019-04-08T10:15:39,02:00:09\n"
+		+ "C_ec_商品作成,2019-04-08T07:57:35,2019-04-08T08:42:53,00:45:18\n"
+		+ "C_ec_期間別受注作成,2019-04-08T10:16:01,2019-04-08T10:58:57,00:42:56";
 
 	function onload()
 	{
-		/*
-		// canvasに描画
-		var can1 = document.getElementById("can1");
-		var ctx1 = can1.getContext("2d");
+		// 処理日
+		var disp_dt = new Date();
 		
-		ctx1.fillStyle ="rgb(200,200,100)";
-		ctx1.fillRect(0,0,50,50);
-		
-		ctx1.fillStyle ="rgb(100,0,0)";
-		ctx1.beginPath();
-		ctx1.arc(25,25, 10, 0, 2*Math.PI, true);
-		ctx1.fill();
-		*/
-
 		// ログを配列にする
 		var log_infos = [];
 		var log_ary = results_str.split(/\r\n|\n/);
@@ -59,11 +49,23 @@
 			var log = log_ary[i];
 			if( log.length==0 ){continue;}
 			var one_log = log.split(/,/);
+			
+			var start_dt = new Date(Date.parse(one_log[1]));
+			var end_dt = new Date(Date.parse(one_log[2]));
+			
+			// disp_dtだけを追加する
+			if(
+				(start_dt.getFullYear()!=disp_dt.getFullYear()) ||
+				(start_dt.getMonth()!=disp_dt.getMonth()) ||
+				(start_dt.getDate()!=disp_dt.getDate())
+			){
+				continue
+			}
 
 			log_infos.push({
 				'name' : one_log[0],
-				'start': new Date(Date.parse(one_log[1])),
-				'end'  : new Date(Date.parse(one_log[2]))
+				'start': start_dt,
+				'end'  : end_dt
 			});
 		}
 		console.log(log_infos);
@@ -86,8 +88,10 @@
 		var ONE_LINE_HEIGHT = 30;	// １行の高さ
 		var LINE_PADDING = 8;	// padding
 		var width = NAME_WIDTH
-			+ (max_tm.getHours() - min_tm.getHours()) * HOUR_WIDTH;
+			+ (max_tm.getHours() - min_tm.getHours() + 1) * HOUR_WIDTH;
 		var height = ONE_LINE_HEIGHT * (1+log_infos.length);
+		console.log('width:'+ width);
+		console.log('height:'+ height);
 		// キャンバスのサイズを変更する
 		document.getElementById("can1").setAttribute('width', width);
 		document.getElementById("can1").setAttribute('height', height);
@@ -105,7 +109,7 @@
 		// 時刻ごとの罫線（縦線）
 		ctx1.strokeStyle = "#f6f6ee";
 		ctx1.lineWidth = 1;
-		for( var i=0; i<(max_tm.getHours() - min_tm.getHours()); i++){
+		for( var i=0; i<(max_tm.getHours() - min_tm.getHours() + 1); i++){
 			ctx1.beginPath();
 			ctx1.moveTo(
 				NAME_WIDTH + HOUR_WIDTH*i, 
@@ -120,7 +124,7 @@
 		}
 		// ジョブごとの罫線（横線）
 		ctx1.strokeStyle = "#ddc";
-		for( var i=0; i<log_infos.length; i++){
+		for( var i=0; i<(log_infos.length+1); i++){
 			ctx1.beginPath();
 			ctx1.moveTo(
 				0, 
@@ -136,8 +140,8 @@
 		// 時刻
 		ctx1.fillStyle = "rgb(0,0,0)";
 		ctx1.font = "10px メイリオ";
-		var min_hour = max_tm.getHours();
-		for( var i=0; i<(max_tm.getHours() - min_tm.getHours()); i++){
+		var min_hour = min_tm.getHours();
+		for( var i=0; i<(max_tm.getHours() - min_tm.getHours() + 1); i++){
 			ctx1.fillText(
 				(min_hour + i) + ':00',
 				NAME_WIDTH + HOUR_WIDTH * i,
