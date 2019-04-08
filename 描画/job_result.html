@@ -84,7 +84,7 @@
 
 		// 絵の幅を決定
 		var NAME_WIDTH = 300;	// 名前の幅
-		var HOUR_WIDTH = 50;	// １時間の幅
+		var HOUR_WIDTH = 100;	// １時間の幅
 		var ONE_LINE_HEIGHT = 30;	// １行の高さ
 		var LINE_PADDING = 8;	// padding
 		var width = NAME_WIDTH
@@ -105,9 +105,14 @@
 		ctx1.fillRect(0,0,width,ONE_LINE_HEIGHT);
 		ctx1.fillStyle = "rgb(200,230,180)";
 		ctx1.fillRect(0,ONE_LINE_HEIGHT+1, NAME_WIDTH,height);
+		// 行
+		ctx1.fillStyle = "rgba(200,200,200,0.15)";
+		for( var i=2; i<(log_infos.length+1); i+=2){
+			ctx1.fillRect(0,i*ONE_LINE_HEIGHT, width, ONE_LINE_HEIGHT);
+		}
 
 		// 時刻ごとの罫線（縦線）
-		ctx1.strokeStyle = "#f6f6ee";
+		ctx1.strokeStyle = "#eed";
 		ctx1.lineWidth = 1;
 		for( var i=0; i<(max_tm.getHours() - min_tm.getHours() + 1); i++){
 			ctx1.beginPath();
@@ -123,7 +128,7 @@
 			ctx1.stroke();
 		}
 		// ジョブごとの罫線（横線）
-		ctx1.strokeStyle = "#ddc";
+		ctx1.strokeStyle = "#bba";
 		for( var i=0; i<(log_infos.length+1); i++){
 			ctx1.beginPath();
 			ctx1.moveTo(
